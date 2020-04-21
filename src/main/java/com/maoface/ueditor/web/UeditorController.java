@@ -77,25 +77,25 @@ public class UeditorController {
                 case UPLOAD_FILE: {
                     UploadFileProperties properties = this.properties.getUploadFileConfig();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getFileFieldName());
-                    BaseResponse response = actionService.uploadFile(inputStreamDetail, properties);
+                    BaseResponse response = actionService.uploadFile(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_SCRAWL: {
                     UploadScrawlProperties properties = this.properties.getUploadScrawlConfig();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getScrawlFieldName());
-                    BaseResponse response = actionService.uploadScrawl(inputStreamDetail, properties);
+                    BaseResponse response = actionService.uploadScrawl(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_VIDEO: {
                     UploadVideoProperties properties = this.properties.getUploadVideoConfig();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getVideoFieldName());
-                    BaseResponse response = actionService.uploadVideo(inputStreamDetail, properties);
+                    BaseResponse response = actionService.uploadVideo(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_IMAGE: {
                     UploadImageProperties properties = this.properties.getUploadImageConfig();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getImageFieldName());
-                    BaseResponse response = actionService.uploadImage(inputStreamDetail, properties);
+                    BaseResponse response = actionService.uploadImage(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case LIST_FILE: {
@@ -110,7 +110,7 @@ public class UeditorController {
                     if (Validator.isNumber(sizeStr)) {
                         size = Integer.parseInt(sizeStr);
                     }
-                    BaseResponse response = actionService.listFile(properties, start, size);
+                    BaseResponse response = actionService.listFile(start, size);
                     // 需要支持callback参数,返回jsonp格式
                     String body = UeditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
@@ -127,7 +127,7 @@ public class UeditorController {
                     if (Validator.isNumber(sizeStr)) {
                         size = Integer.parseInt(sizeStr);
                     }
-                    BaseResponse response = actionService.listImage(properties, start, size);
+                    BaseResponse response = actionService.listImage(start, size);
                     // 需要支持callback参数,返回jsonp格式
                     String body = UeditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);

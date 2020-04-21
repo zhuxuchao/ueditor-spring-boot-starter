@@ -29,11 +29,11 @@ public abstract class Actions {
         actions.put(Constants.Action.CATCH_IMAGE, CATCH_IMAGE);
     }
 
-    public static boolean containsKey(String action){
+    public static boolean containsKey(String action) {
         return actions.containsKey(action);
     }
 
-    public static int getAction(String action){
+    public static int getAction(String action) {
         return actions.get(action);
     }
 }

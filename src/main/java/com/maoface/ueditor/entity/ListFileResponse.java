@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class ListFileResponse extends BaseResponse {
     @Setter
     @Getter
     @Builder
-    public static class FileItem {
+    public static class FileItem implements Serializable {
         private String url;
     }
 }

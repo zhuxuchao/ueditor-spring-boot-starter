@@ -1,10 +1,17 @@
 package com.maoface.ueditor.util;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONUtil;
 import com.maoface.ueditor.config.UeditorProperties;
 import org.springframework.util.StringUtils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,10 +63,20 @@ public abstract class UeditorUtils {
         return callbackName + "(" + str + ");";
     }
 
+    public static void upload(byte[] bytes, String path) throws IOException {
+        final File resource = new File(path);
+        if (!resource.exists()) {
+            resource.getParentFile().mkdirs();
+        }
+        FileOutputStream outputStream = new FileOutputStream(resource);
+        IoUtil.write(outputStream, true, bytes);
+    }
+
     /**
      * 获取文件名后缀<br>
      * --> .jpg <br>
      * --> .txt
+     *
      * @param originalFileName
      * @return
      */
@@ -69,5 +86,17 @@ public abstract class UeditorUtils {
             return originalFileName.substring(i);
         }
         return "";
+    }
+
+    public static boolean validHost(String hostname, Collection<String> filters) {
+        try {
+            InetAddress ip = InetAddress.getByName(hostname);
+            if (ip.isSiteLocalAddress()) {
+                return false;
+            }
+        } catch (UnknownHostException e) {
+            return false;
+        }
+        return !filters.contains(hostname);
     }
 }

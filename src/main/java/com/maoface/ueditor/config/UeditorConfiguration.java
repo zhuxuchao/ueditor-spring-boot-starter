@@ -36,8 +36,8 @@ public class UeditorConfiguration {
      */
     @ConditionalOnMissingBean(UeditorActionService.class)
     @Bean
-    public UeditorActionService ueditorActionService() {
-        return new DefaultUeditorActionServiceImpl();
+    public UeditorActionService ueditorActionService(UeditorProperties properties) {
+        return new DefaultUeditorActionServiceImpl(properties);
     }
 
     /**
