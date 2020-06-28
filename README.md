@@ -1,5 +1,5 @@
 # ueditor-spring-boot-starter
-百度UEditor富文本编辑期后台服务
+百度UEditor富文本编辑期后台服务。有待优化
 
 ### 如何使用：
 1. 在工程pom.xml里加入相关依赖 
