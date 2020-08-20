@@ -30,7 +30,7 @@ public class UploadImageProperties {
     /**
      * 上传大小限制,单位B,默认2MB，注意修改服务器的大小限制
      */
-    private int imageMaxSize = 2048000;
+    private int imageMaxSize = 10240000;
     /**
      * 上传保存路径,可以自定义保存路径和文件名格式
      */

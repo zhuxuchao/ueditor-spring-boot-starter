@@ -34,7 +34,7 @@ public class FileManagerProperties {
     /**
      * 每次列出文件数量
      */
-    private int fileManagerListSize = 20;
+    private int fileManagerListSize = 10;
     /**
      * 列出的文件类型
      */

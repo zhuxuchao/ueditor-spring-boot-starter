@@ -38,7 +38,7 @@ public class ImageManagerProperties {
     /**
      * 每次列出文件数量
      */
-    private int imageManagerListSize = 20;
+    private int imageManagerListSize = 10;
     /**
      * 列出的文件类型
      */

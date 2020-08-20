@@ -28,9 +28,9 @@ public class UploadFileProperties {
      */
     private String fileFieldName = "upfile";
     /**
-     * 上传大小限制，单位B，默认50MB，注意修改服务器的大小限制
+     * 上传大小限制，单位B，默认10MB，注意修改服务器的大小限制
      */
-    private int fileMaxSize = 51200000;
+    private int fileMaxSize = 10240000;
     /**
      * 文件访问路径前缀
      */

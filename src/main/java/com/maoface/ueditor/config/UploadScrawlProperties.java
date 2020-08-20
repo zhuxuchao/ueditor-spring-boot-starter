@@ -26,7 +26,7 @@ public class UploadScrawlProperties {
     /**
      * 上传大小限制，单位B。 默认2MB，注意修改服务器的大小限制
      */
-    private int scrawlMaxSize = 2048000;
+    private int scrawlMaxSize = 10240000;
     /**
      * 图片访问路径前缀
      */
