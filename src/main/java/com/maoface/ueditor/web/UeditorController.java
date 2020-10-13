@@ -1,6 +1,5 @@
 package com.maoface.ueditor.web;
 
-import cn.hutool.core.lang.Validator;
 import com.maoface.ueditor.config.FileManagerProperties;
 import com.maoface.ueditor.config.ImageManagerProperties;
 import com.maoface.ueditor.config.UeditorProperties;
@@ -15,7 +14,9 @@ import com.maoface.ueditor.entity.BaseResponse;
 import com.maoface.ueditor.entity.InputStreamDetail;
 import com.maoface.ueditor.service.UeditorActionService;
 import com.maoface.ueditor.util.UeditorUtils;
-import lombok.extern.slf4j.Slf4j;
+import com.maoface.ueditor.util.Validator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -41,8 +42,8 @@ import static com.maoface.ueditor.consts.Constants.Message.SERVER_ERROR;
  * @author zhuxuchao
  * @date 2020-04-02 11:16
  */
-@Slf4j
 public class UeditorController {
+    private static final Logger logger = LoggerFactory.getLogger(UeditorController.class);
     public static final String REQUEST_MAPPING_METHOD = "action";
     private UeditorActionService actionService;
     private UeditorProperties properties;
@@ -145,10 +146,10 @@ public class UeditorController {
                 }
             }
         } catch (IOException e) {
-            log.error("Ueditor富文本文件上传IO异常", e);
+            logger.error("Ueditor富文本文件上传IO异常", e);
             return new ResponseEntity<>(new BaseResponse(IO_ERROR), HttpStatus.OK);
         } catch (Exception e) {
-            log.error("Ueditor富文本文件上传异常", e);
+            logger.error("Ueditor富文本文件上传异常", e);
             return new ResponseEntity<>(new BaseResponse(SERVER_ERROR), HttpStatus.OK);
         }
     }

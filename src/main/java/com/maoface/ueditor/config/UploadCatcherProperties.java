@@ -1,9 +1,6 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Arrays;
@@ -14,14 +11,11 @@ import java.util.Set;
  * @author zhuxuchao
  * @date 2020-04-15 16:23
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.upload-catcher-config")
 public class UploadCatcherProperties {
     /**
      * 执行抓取远程图片的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String catcherActionName = Constants.Action.CATCH_IMAGE;
     /**
      * 提交的图片列表表单名称
@@ -47,4 +41,60 @@ public class UploadCatcherProperties {
      * 抓取图片格式限制
      */
     private Set<String> catcherAllowFiles = new HashSet<>(Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp"));
+
+    public String getCatcherActionName() {
+        return catcherActionName;
+    }
+
+    public void setCatcherActionName(String catcherActionName) {
+        this.catcherActionName = catcherActionName;
+    }
+
+    public String getCatcherFieldName() {
+        return catcherFieldName;
+    }
+
+    public void setCatcherFieldName(String catcherFieldName) {
+        this.catcherFieldName = catcherFieldName;
+    }
+
+    public int getCatcherMaxSize() {
+        return catcherMaxSize;
+    }
+
+    public void setCatcherMaxSize(int catcherMaxSize) {
+        this.catcherMaxSize = catcherMaxSize;
+    }
+
+    public String getCatcherUrlPrefix() {
+        return catcherUrlPrefix;
+    }
+
+    public void setCatcherUrlPrefix(String catcherUrlPrefix) {
+        this.catcherUrlPrefix = catcherUrlPrefix;
+    }
+
+    public String getCatcherPathFormat() {
+        return catcherPathFormat;
+    }
+
+    public void setCatcherPathFormat(String catcherPathFormat) {
+        this.catcherPathFormat = catcherPathFormat;
+    }
+
+    public Set<String> getCatcherLocalDomain() {
+        return catcherLocalDomain;
+    }
+
+    public void setCatcherLocalDomain(Set<String> catcherLocalDomain) {
+        this.catcherLocalDomain = catcherLocalDomain;
+    }
+
+    public Set<String> getCatcherAllowFiles() {
+        return catcherAllowFiles;
+    }
+
+    public void setCatcherAllowFiles(Set<String> catcherAllowFiles) {
+        this.catcherAllowFiles = catcherAllowFiles;
+    }
 }

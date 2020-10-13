@@ -1,9 +1,6 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Arrays;
@@ -14,14 +11,11 @@ import java.util.Set;
  * @author zhuxuchao
  * @date 2020-04-15 16:26
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.file-manager-config")
 public class FileManagerProperties {
     /**
      * 执行文件管理的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String fileManagerActionName = Constants.Action.LIST_FILE;
     /**
      * 指定要列出文件的目录
@@ -43,4 +37,44 @@ public class FileManagerProperties {
             ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
             ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
             ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"));
+
+    public String getFileManagerActionName() {
+        return fileManagerActionName;
+    }
+
+    public void setFileManagerActionName(String fileManagerActionName) {
+        this.fileManagerActionName = fileManagerActionName;
+    }
+
+    public String getFileManagerListPath() {
+        return fileManagerListPath;
+    }
+
+    public void setFileManagerListPath(String fileManagerListPath) {
+        this.fileManagerListPath = fileManagerListPath;
+    }
+
+    public String getFileManagerUrlPrefix() {
+        return fileManagerUrlPrefix;
+    }
+
+    public void setFileManagerUrlPrefix(String fileManagerUrlPrefix) {
+        this.fileManagerUrlPrefix = fileManagerUrlPrefix;
+    }
+
+    public int getFileManagerListSize() {
+        return fileManagerListSize;
+    }
+
+    public void setFileManagerListSize(int fileManagerListSize) {
+        this.fileManagerListSize = fileManagerListSize;
+    }
+
+    public Set<String> getFileManagerAllowFiles() {
+        return fileManagerAllowFiles;
+    }
+
+    public void setFileManagerAllowFiles(Set<String> fileManagerAllowFiles) {
+        this.fileManagerAllowFiles = fileManagerAllowFiles;
+    }
 }

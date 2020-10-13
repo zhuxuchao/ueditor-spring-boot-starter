@@ -1,6 +1,5 @@
 package com.maoface.ueditor.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 import com.maoface.ueditor.config.FileManagerProperties;
@@ -52,7 +51,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         }
         Set<String> imageAllowFiles = properties.getImageAllowFiles();
         String suffix = streamDetail.getSuffix();
-        if (CollUtil.isNotEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
+        if (!CollectionUtils.isEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
             return new BaseResponse(Constants.Message.NOT_ALLOW_FILE_TYPE);
         }
         int imageMaxSize = properties.getImageMaxSize();
@@ -81,7 +80,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         }
         Set<String> imageAllowFiles = properties.getVideoAllowFiles();
         String suffix = streamDetail.getSuffix();
-        if (CollUtil.isNotEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
+        if (!CollectionUtils.isEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
             return new BaseResponse(Constants.Message.NOT_ALLOW_FILE_TYPE);
         }
         int imageMaxSize = properties.getVideoMaxSize();
@@ -110,7 +109,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         }
         Set<String> imageAllowFiles = properties.getFileAllowFiles();
         String suffix = streamDetail.getSuffix();
-        if (CollUtil.isNotEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
+        if (!CollectionUtils.isEmpty(imageAllowFiles) && !imageAllowFiles.contains(suffix)) {
             return new BaseResponse(Constants.Message.NOT_ALLOW_FILE_TYPE);
         }
         int imageMaxSize = properties.getFileMaxSize();
@@ -246,10 +245,9 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
                 final InputStream inputStream = connection.getInputStream();
                 byte[] bytes = IoUtil.readBytes(inputStream);
                 UeditorUtils.upload(bytes, path);
-                final CatchImageResponse.CatchImageItem item = CatchImageResponse.CatchImageItem.builder()
-                        .source(imageUrl)
-                        .state(Constants.Message.SUCCESS)
-                        .url(path).build();
+                final CatchImageResponse.CatchImageItem item = new CatchImageResponse.CatchImageItem(imageUrl
+                        , Constants.Message.SUCCESS
+                        , path);
                 list.add(item);
             }
         } catch (Exception e) {
@@ -276,7 +274,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
                  i < total && j < size;
                  i++, j++) {
                 final File image = files.get(i);
-                final ListFileResponse.FileItem item = ListFileResponse.FileItem.builder().url(image.getAbsolutePath()).build();
+                final ListFileResponse.FileItem item = new ListFileResponse.FileItem(image.getAbsolutePath());
                 listItem.add(item);
             }
         }

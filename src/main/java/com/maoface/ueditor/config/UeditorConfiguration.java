@@ -3,7 +3,8 @@ package com.maoface.ueditor.config;
 import com.maoface.ueditor.service.UeditorActionService;
 import com.maoface.ueditor.service.impl.DefaultUeditorActionServiceImpl;
 import com.maoface.ueditor.web.UeditorController;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -27,8 +28,9 @@ import java.lang.reflect.Method;
  */
 @Configuration
 @EnableConfigurationProperties({UeditorProperties.class})
-@Slf4j
 public class UeditorConfiguration {
+    private static final Logger log = LoggerFactory.getLogger(UeditorConfiguration.class);
+
     /**
      * 当Spring容器中不存在UeditorActionService实例，注册默认UeditorActionService实现
      *

@@ -1,9 +1,6 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Arrays;
@@ -14,14 +11,11 @@ import java.util.Set;
  * @author zhuxuchao
  * @date 2020-04-15 16:01
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.upload-image-config")
 public class UploadImageProperties {
     /**
      * 执行上传图片的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String imageActionName = Constants.Action.UPLOAD_IMAGE;
     /**
      * 提交的图片表单名称
@@ -55,4 +49,76 @@ public class UploadImageProperties {
      * 上传图片格式限制
      */
     private Set<String> imageAllowFiles = new HashSet<>(Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp"));
+
+    public String getImageActionName() {
+        return imageActionName;
+    }
+
+    public void setImageActionName(String imageActionName) {
+        this.imageActionName = imageActionName;
+    }
+
+    public String getImageFieldName() {
+        return imageFieldName;
+    }
+
+    public void setImageFieldName(String imageFieldName) {
+        this.imageFieldName = imageFieldName;
+    }
+
+    public int getImageMaxSize() {
+        return imageMaxSize;
+    }
+
+    public void setImageMaxSize(int imageMaxSize) {
+        this.imageMaxSize = imageMaxSize;
+    }
+
+    public String getImagePathFormat() {
+        return imagePathFormat;
+    }
+
+    public void setImagePathFormat(String imagePathFormat) {
+        this.imagePathFormat = imagePathFormat;
+    }
+
+    public String getImageUrlPrefix() {
+        return imageUrlPrefix;
+    }
+
+    public void setImageUrlPrefix(String imageUrlPrefix) {
+        this.imageUrlPrefix = imageUrlPrefix;
+    }
+
+    public int getImageCompressBorder() {
+        return imageCompressBorder;
+    }
+
+    public void setImageCompressBorder(int imageCompressBorder) {
+        this.imageCompressBorder = imageCompressBorder;
+    }
+
+    public boolean isImageCompressEnable() {
+        return imageCompressEnable;
+    }
+
+    public void setImageCompressEnable(boolean imageCompressEnable) {
+        this.imageCompressEnable = imageCompressEnable;
+    }
+
+    public String getImageInsertAlign() {
+        return imageInsertAlign;
+    }
+
+    public void setImageInsertAlign(String imageInsertAlign) {
+        this.imageInsertAlign = imageInsertAlign;
+    }
+
+    public Set<String> getImageAllowFiles() {
+        return imageAllowFiles;
+    }
+
+    public void setImageAllowFiles(Set<String> imageAllowFiles) {
+        this.imageAllowFiles = imageAllowFiles;
+    }
 }

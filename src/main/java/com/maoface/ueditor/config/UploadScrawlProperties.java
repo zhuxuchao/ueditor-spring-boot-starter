@@ -1,23 +1,17 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author zhuxuchao
  * @date 2020-04-15 16:26
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.upload-scrawl-config")
 public class UploadScrawlProperties {
     /**
      * 执行上传涂鸦的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String scrawlActionName = Constants.Action.UPLOAD_SCRAWL;
     /**
      * 提交的图片表单名称
@@ -39,4 +33,52 @@ public class UploadScrawlProperties {
      * 插入的图片浮动方式
      */
     private String scrawlInsertAlign = "none";
+
+    public String getScrawlActionName() {
+        return scrawlActionName;
+    }
+
+    public void setScrawlActionName(String scrawlActionName) {
+        this.scrawlActionName = scrawlActionName;
+    }
+
+    public String getScrawlFieldName() {
+        return scrawlFieldName;
+    }
+
+    public void setScrawlFieldName(String scrawlFieldName) {
+        this.scrawlFieldName = scrawlFieldName;
+    }
+
+    public int getScrawlMaxSize() {
+        return scrawlMaxSize;
+    }
+
+    public void setScrawlMaxSize(int scrawlMaxSize) {
+        this.scrawlMaxSize = scrawlMaxSize;
+    }
+
+    public String getScrawlUrlPrefix() {
+        return scrawlUrlPrefix;
+    }
+
+    public void setScrawlUrlPrefix(String scrawlUrlPrefix) {
+        this.scrawlUrlPrefix = scrawlUrlPrefix;
+    }
+
+    public String getScrawlPathFormat() {
+        return scrawlPathFormat;
+    }
+
+    public void setScrawlPathFormat(String scrawlPathFormat) {
+        this.scrawlPathFormat = scrawlPathFormat;
+    }
+
+    public String getScrawlInsertAlign() {
+        return scrawlInsertAlign;
+    }
+
+    public void setScrawlInsertAlign(String scrawlInsertAlign) {
+        this.scrawlInsertAlign = scrawlInsertAlign;
+    }
 }

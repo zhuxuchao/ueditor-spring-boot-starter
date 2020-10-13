@@ -1,7 +1,5 @@
 package com.maoface.ueditor.config;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -10,8 +8,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @author zhuxuchao
  * @date 2020-04-02 10:46
  */
-@Setter
-@Getter
 @EnableConfigurationProperties({
         UploadImageProperties.class,
         UploadVideoProperties.class,
@@ -68,4 +64,76 @@ public class UeditorProperties {
      */
     @Autowired
     private FileManagerProperties fileManagerConfig;
+
+    public String getRequestMappingPath() {
+        return requestMappingPath;
+    }
+
+    public void setRequestMappingPath(String requestMappingPath) {
+        this.requestMappingPath = requestMappingPath;
+    }
+
+    public UploadImageProperties getUploadImageConfig() {
+        return uploadImageConfig;
+    }
+
+    public void setUploadImageConfig(UploadImageProperties uploadImageConfig) {
+        this.uploadImageConfig = uploadImageConfig;
+    }
+
+    public UploadVideoProperties getUploadVideoConfig() {
+        return uploadVideoConfig;
+    }
+
+    public void setUploadVideoConfig(UploadVideoProperties uploadVideoConfig) {
+        this.uploadVideoConfig = uploadVideoConfig;
+    }
+
+    public UploadFileProperties getUploadFileConfig() {
+        return uploadFileConfig;
+    }
+
+    public void setUploadFileConfig(UploadFileProperties uploadFileConfig) {
+        this.uploadFileConfig = uploadFileConfig;
+    }
+
+    public UploadScrawlProperties getUploadScrawlConfig() {
+        return uploadScrawlConfig;
+    }
+
+    public void setUploadScrawlConfig(UploadScrawlProperties uploadScrawlConfig) {
+        this.uploadScrawlConfig = uploadScrawlConfig;
+    }
+
+    public UploadCatcherProperties getUploadCatcherConfig() {
+        return uploadCatcherConfig;
+    }
+
+    public void setUploadCatcherConfig(UploadCatcherProperties uploadCatcherConfig) {
+        this.uploadCatcherConfig = uploadCatcherConfig;
+    }
+
+    public UploadSnapscreenProperties getUploadSnapscreenConfig() {
+        return uploadSnapscreenConfig;
+    }
+
+    public void setUploadSnapscreenConfig(UploadSnapscreenProperties uploadSnapscreenConfig) {
+        this.uploadSnapscreenConfig = uploadSnapscreenConfig;
+    }
+
+    public ImageManagerProperties getImageManagerConfig() {
+        return imageManagerConfig;
+    }
+
+    public void setImageManagerConfig(ImageManagerProperties imageManagerConfig) {
+        this.imageManagerConfig = imageManagerConfig;
+    }
+
+    public FileManagerProperties getFileManagerConfig() {
+        return fileManagerConfig;
+    }
+
+    public void setFileManagerConfig(FileManagerProperties fileManagerConfig) {
+        this.fileManagerConfig = fileManagerConfig;
+    }
 }

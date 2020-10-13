@@ -1,7 +1,6 @@
 package com.maoface.ueditor.util;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.io.IoUtil;
 import cn.hutool.json.JSONUtil;
 import com.maoface.ueditor.config.UeditorProperties;
 import org.springframework.util.StringUtils;
@@ -69,7 +68,8 @@ public abstract class UeditorUtils {
             resource.getParentFile().mkdirs();
         }
         FileOutputStream outputStream = new FileOutputStream(resource);
-        IoUtil.write(outputStream, true, bytes);
+        outputStream.write(bytes);
+        outputStream.close();
     }
 
     /**

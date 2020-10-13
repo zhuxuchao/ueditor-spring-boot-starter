@@ -30,11 +30,11 @@ public interface UeditorActionService {
         final String originalFilename = multipartFile.getOriginalFilename();
         final String suffix = UeditorUtils.getSuffix(originalFilename);
         final InputStream inputStream = multipartFile.getInputStream();
-        return InputStreamDetail.builder()
-                .suffix(suffix)
-                .originFileName(originalFilename)
-                .inputStream(inputStream)
-                .build();
+        InputStreamDetail inputStreamDetail = new InputStreamDetail();
+        inputStreamDetail.setSuffix(suffix);
+        inputStreamDetail.setInputStream(inputStream);
+        inputStreamDetail.setOriginFileName(originalFilename);
+        return inputStreamDetail;
     }
 
     /**

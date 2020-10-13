@@ -1,9 +1,6 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Arrays;
@@ -14,14 +11,11 @@ import java.util.Set;
  * @author zhuxuchao
  * @date 2020-04-15 16:17
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.upload-file-config")
 public class UploadFileProperties {
     /**
      * 执行上传视频的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String fileActionName = Constants.Action.UPLOAD_FILE;
     /**
      * 提交的文件表单名称
@@ -47,4 +41,52 @@ public class UploadFileProperties {
             ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid",
             ".rar", ".zip", ".tar", ".gz", ".7z", ".bz2", ".cab", ".iso",
             ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"));
+
+    public String getFileActionName() {
+        return fileActionName;
+    }
+
+    public void setFileActionName(String fileActionName) {
+        this.fileActionName = fileActionName;
+    }
+
+    public String getFileFieldName() {
+        return fileFieldName;
+    }
+
+    public void setFileFieldName(String fileFieldName) {
+        this.fileFieldName = fileFieldName;
+    }
+
+    public int getFileMaxSize() {
+        return fileMaxSize;
+    }
+
+    public void setFileMaxSize(int fileMaxSize) {
+        this.fileMaxSize = fileMaxSize;
+    }
+
+    public String getFileUrlPrefix() {
+        return fileUrlPrefix;
+    }
+
+    public void setFileUrlPrefix(String fileUrlPrefix) {
+        this.fileUrlPrefix = fileUrlPrefix;
+    }
+
+    public String getFilePathFormat() {
+        return filePathFormat;
+    }
+
+    public void setFilePathFormat(String filePathFormat) {
+        this.filePathFormat = filePathFormat;
+    }
+
+    public Set<String> getFileAllowFiles() {
+        return fileAllowFiles;
+    }
+
+    public void setFileAllowFiles(Set<String> fileAllowFiles) {
+        this.fileAllowFiles = fileAllowFiles;
+    }
 }

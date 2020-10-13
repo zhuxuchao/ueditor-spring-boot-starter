@@ -1,9 +1,6 @@
 package com.maoface.ueditor.config;
 
 import com.maoface.ueditor.consts.Constants;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Arrays;
@@ -14,14 +11,11 @@ import java.util.Set;
  * @author zhuxuchao
  * @date 2020-04-15 16:27
  */
-@Getter
-@Setter
 @ConfigurationProperties(prefix = "ueditor.config.image-manager-config")
 public class ImageManagerProperties {
     /**
      * 执行图片管理的action名称
      */
-    @Setter(AccessLevel.NONE)
     private String imageManagerActionName = Constants.Action.LIST_IMAGE;
     /**
      * 指定要列出图片的目录
@@ -43,4 +37,52 @@ public class ImageManagerProperties {
      * 列出的文件类型
      */
     private Set<String> imageManagerAllowFiles = new HashSet<>(Arrays.asList(".png", ".jpg", ".jpeg", ".gif", ".bmp"));
+
+    public String getImageManagerActionName() {
+        return imageManagerActionName;
+    }
+
+    public void setImageManagerActionName(String imageManagerActionName) {
+        this.imageManagerActionName = imageManagerActionName;
+    }
+
+    public String getImageManagerListPath() {
+        return imageManagerListPath;
+    }
+
+    public void setImageManagerListPath(String imageManagerListPath) {
+        this.imageManagerListPath = imageManagerListPath;
+    }
+
+    public String getImageManagerUrlPrefix() {
+        return imageManagerUrlPrefix;
+    }
+
+    public void setImageManagerUrlPrefix(String imageManagerUrlPrefix) {
+        this.imageManagerUrlPrefix = imageManagerUrlPrefix;
+    }
+
+    public String getImageManagerInsertAlign() {
+        return imageManagerInsertAlign;
+    }
+
+    public void setImageManagerInsertAlign(String imageManagerInsertAlign) {
+        this.imageManagerInsertAlign = imageManagerInsertAlign;
+    }
+
+    public int getImageManagerListSize() {
+        return imageManagerListSize;
+    }
+
+    public void setImageManagerListSize(int imageManagerListSize) {
+        this.imageManagerListSize = imageManagerListSize;
+    }
+
+    public Set<String> getImageManagerAllowFiles() {
+        return imageManagerAllowFiles;
+    }
+
+    public void setImageManagerAllowFiles(Set<String> imageManagerAllowFiles) {
+        this.imageManagerAllowFiles = imageManagerAllowFiles;
+    }
 }
