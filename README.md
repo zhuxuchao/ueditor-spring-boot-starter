@@ -41,7 +41,7 @@
     ```
 > 组件有一个默认的Ueditor后端服务器实现类DefaultUeditorActionServiceImpl。 
 > 默认实现中文件存储位置是各action配置中xxxPathFormat的值。因为SpringBoot应用大部分以jar形式发布，所以xxxPathFormat的值是服务器绝对路径，也就是说不属于项目路径。
-> 因此前端页面想直接访问图片资源，必须针对性配置nginx监听，将访问Ueditor资源的请求根目录指向xxxPathFromat目录。   
+> 因此前端页面想直接访问图片资源，必须针对性配置nginx监听，将访问Ueditor资源的请求根目录指向xxxPathFromat目录。    
 
 ### 配置项，具体参考[官网说明](http://fex.baidu.com/ueditor/#server-config) 
 ```yaml
