@@ -212,6 +212,13 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         return response;
     }
 
+    /**
+     * 截图
+     * @param properties
+     * @param source
+     * @return
+     * @throws IOException
+     */
     @Override
     public BaseResponse catchImage(UploadCatcherProperties properties, String... source) throws IOException {
         CatchImageResponse response = new CatchImageResponse();
@@ -266,6 +273,13 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         });
     }
 
+    /**
+     * 文件列表
+     * @param files
+     * @param start
+     * @param size
+     * @return
+     */
     private List<ListFileResponse.FileItem> subList(List<File> files, int start, int size) {
         List<ListFileResponse.FileItem> listItem = new ArrayList<>();
         final int total = files.size();
