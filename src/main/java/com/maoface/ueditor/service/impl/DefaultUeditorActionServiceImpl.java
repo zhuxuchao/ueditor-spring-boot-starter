@@ -228,7 +228,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         try {
             for (String imageUrl : source) {
                 URL url = new URL(imageUrl);
-                final Set<String> allowDomain = properties.getCatcherLocalDomain();
+                Set<String> allowDomain = properties.getCatcherLocalDomain();
                 if (!UeditorUtils.validHost(url.getHost(), allowDomain)) {
                     return new BaseResponse(Constants.Message.PREVENT_HOST);
                 }
@@ -239,20 +239,20 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
                     return new BaseResponse(Constants.Message.CONNECTION_ERROR);
                 }
                 String suffix = UeditorUtils.getSuffix(connection.getContentType());
-                final Set<String> allowFiles = properties.getCatcherAllowFiles();
+                Set<String> allowFiles = properties.getCatcherAllowFiles();
                 if (!allowFiles.contains(suffix)) {
                     return new BaseResponse(Constants.Message.NOT_ALLOW_FILE_TYPE);
                 }
-                final int catcherMaxSize = properties.getCatcherMaxSize();
+                int catcherMaxSize = properties.getCatcherMaxSize();
                 if (connection.getContentLength() > catcherMaxSize) {
                     return new BaseResponse(Constants.Message.MAX_SIZE);
                 }
-                final String catcherPathFormat = properties.getCatcherPathFormat();
+                String catcherPathFormat = properties.getCatcherPathFormat();
                 String path = PathFormat.parse(catcherPathFormat) + suffix;
-                final InputStream inputStream = connection.getInputStream();
+                InputStream inputStream = connection.getInputStream();
                 byte[] bytes = IoUtil.readBytes(inputStream);
                 UeditorUtils.upload(bytes, path);
-                final CatchImageResponse.CatchImageItem item = new CatchImageResponse.CatchImageItem(imageUrl
+                CatchImageResponse.CatchImageItem item = new CatchImageResponse.CatchImageItem(imageUrl
                         , Constants.Message.SUCCESS
                         , path);
                 list.add(item);
