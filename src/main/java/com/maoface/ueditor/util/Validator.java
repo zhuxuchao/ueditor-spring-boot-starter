@@ -35,4 +35,5 @@ public abstract class Validator {
     public static boolean isNumber(CharSequence value) {
         return value != null && NUMBERS.matcher(value).matches();
     }
+    
 }
