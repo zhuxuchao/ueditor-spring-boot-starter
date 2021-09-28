@@ -67,6 +67,7 @@ public class UeditorController {
                 return new ResponseEntity<>(new BaseResponse(ILLEGAL_CALLBACK), HttpStatus.OK);
             }
         }
+        // 有可能拿到空值
         int action = Actions.getAction(actionName);
         try {
             switch (action) {
