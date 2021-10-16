@@ -72,7 +72,7 @@ public class UeditorController {
         try {
             switch (action) {
                 case CONFIG: {
-                    // 需要支持callback参数,返回jsonp格式
+                    // 需要支持callback参数,返回jsonp格式 
                     String config = UeditorUtils.callbackConfig(properties, callbackName);
                     return new ResponseEntity<>(config, HttpStatus.OK);
                 }
