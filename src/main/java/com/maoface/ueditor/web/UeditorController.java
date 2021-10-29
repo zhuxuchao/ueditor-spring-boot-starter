@@ -130,7 +130,7 @@ public class UeditorController {
                         size = Integer.parseInt(sizeStr);
                     }
                     BaseResponse response = actionService.listImage(start, size);
-                    // 需要支持callback参数,返回jsonp格式
+                    // 需要支持callback参数,返回jsonp格式 
                     String body = UeditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
@@ -138,7 +138,7 @@ public class UeditorController {
                     UploadCatcherProperties properties = this.properties.getUploadCatcherConfig();
                     String[] source = request.getParameterValues(Parameters.SOURCE);
                     BaseResponse response = actionService.catchImage(properties, source);
-                    // 需要支持callback参数,返回jsonp格式
+                    // 需要支持callback参数,返回jsonp格式 
                     String body = UeditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
