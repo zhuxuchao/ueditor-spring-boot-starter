@@ -19,6 +19,7 @@ public abstract class Actions {
     public static final int LIST_IMAGE = 7;
 
     static {
+        
         actions.put(Constants.Action.CONFIG, CONFIG);
         actions.put(Constants.Action.UPLOAD_IMAGE, UPLOAD_IMAGE);
         actions.put(Constants.Action.UPLOAD_VIDEO, UPLOAD_VIDEO);
@@ -27,6 +28,7 @@ public abstract class Actions {
         actions.put(Constants.Action.LIST_FILE, LIST_FILE);
         actions.put(Constants.Action.LIST_IMAGE, LIST_IMAGE);
         actions.put(Constants.Action.CATCH_IMAGE, CATCH_IMAGE);
+        
     }
 
     public static boolean containsKey(String action) {
