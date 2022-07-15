@@ -1,0 +1,13 @@
+package com.maoface.ueditor.util;
+
+/**
+ * @author zhuxuchao
+ * @version 1.0
+ * @since 2022/7/15
+ */
+public class BeanUtils {
+
+    public static <S, T> T convert(S source, Class<T> tagert){
+        return null;
+    }
+}
