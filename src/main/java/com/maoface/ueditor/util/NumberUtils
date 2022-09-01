@@ -1,0 +1,9 @@
+package com.maoface.ueditor.util;
+
+public class NumberUtils {
+
+    public static boolean equals(BigDecimal bigNum1, BigDecimal bigNum2) {
+        return 0 == bigNum1.compareTo(bigNum2);
+    }
+    
+}
