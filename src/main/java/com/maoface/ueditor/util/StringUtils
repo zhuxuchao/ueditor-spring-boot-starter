@@ -10,4 +10,8 @@ public class StringUtils {
     public static String trim(String str){
         return str != null ? str.trim() : str;
     }
+    
+    public static boolean isEmpty(CharSequence cs) {
+        return cs == null || cs.length() == 0;
+    }
 }
