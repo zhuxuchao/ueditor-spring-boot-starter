@@ -32,4 +32,14 @@ public class UploadResponse extends BaseResponse {
     public void setOriginal(String original) {
         this.original = original;
     }
+
+    @Override
+    public String toString() {
+        return "UploadResponse{" +
+                "state='" + state + '\'' +
+                ", url='" + url + '\'' +
+                ", title='" + title + '\'' +
+                ", original='" + original + '\'' +
+                '}';
+    }
 }
