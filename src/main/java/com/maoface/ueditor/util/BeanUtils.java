@@ -62,14 +62,4 @@ public class BeanUtils {
         return fieldNames;
     }
 
-    public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException, InstantiationException, IntrospectionException {
-        UploadResponse response = new UploadResponse();
-        response.setOriginal("original");
-        response.setTitle("title");
-        response.setUrl("url");
-        response.setState("state");
-        UploadResponse tagert = new UploadResponse();
-        BeanUtils.copy(response, tagert);
-        System.out.println(tagert);
-    }
 }
