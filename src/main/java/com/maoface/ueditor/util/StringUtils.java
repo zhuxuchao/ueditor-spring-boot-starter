@@ -1,5 +1,9 @@
 package com.maoface.ueditor.util;
 
+import cn.hutool.core.lang.Assert;
+
+import java.util.Objects;
+
 /**
  * @author zhuxuchao
  * @version 1.0
@@ -16,7 +20,13 @@ public class StringUtils {
     }
 
     public static boolean anyEquals(String str, String... others) {
-        // TODO: 2023/1/27 需要实现给定字符串满足equals字符串数组任一元素的逻辑
+        Assert.notEmpty(others, "要比较的字符串数组不能是空");
+        for (int i = 0; i < others.length; i++) {
+            String other = others[i];
+            if (Objects.equals(str, other)) {
+                return true;
+            }
+        }
         return false;
     }
 }
