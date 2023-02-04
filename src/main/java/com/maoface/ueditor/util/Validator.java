@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  * @author zhuxuchao
  * @date 2020-10-13 9:49
  */
-public abstract class Validator {
+public class Validator {
     public static final Pattern GENERAL = Pattern.compile("^\\w+$");
     public static final Pattern NUMBERS = Pattern.compile("\\d+");
     public static final Pattern WORD = Pattern.compile("[a-zA-Z]+");

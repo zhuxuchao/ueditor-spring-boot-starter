@@ -31,7 +31,7 @@ public class BeanUtils {
             throw new RuntimeException(e);
         }
         PropertyDescriptor[] sourcePdArray = sourceBeanInfo.getPropertyDescriptors();
-        Map<String, PropertyDescriptor> map = new HashMap<>();
+        Map<String, PropertyDescriptor> map = new HashMap<>(16);
         if (sourcePdArray != null) {
             Arrays.stream(sourcePdArray).forEach(pd -> {
                 map.put(pd.getName(), pd);

@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class PathFormat {
+public class PathFormat {
 
     private static final String TIME = "time";
     private static final String FULL_YEAR = "yyyy";

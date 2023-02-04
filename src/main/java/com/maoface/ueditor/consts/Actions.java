@@ -7,8 +7,8 @@ import java.util.Map;
  * @author zhuxuchao
  * @date 2020-04-16 15:21
  */
-public abstract class Actions {
-    private static final Map<String, Integer> actions = new HashMap<>();
+public class Actions {
+    private static final Map<String, Integer> ACTIONS = new HashMap<>();
     public static final int CONFIG = 0;
     public static final int UPLOAD_IMAGE = 1;
     public static final int UPLOAD_VIDEO = 2;
@@ -20,22 +20,22 @@ public abstract class Actions {
 
     static {
         
-        actions.put(Constants.Action.CONFIG, CONFIG);
-        actions.put(Constants.Action.UPLOAD_IMAGE, UPLOAD_IMAGE);
-        actions.put(Constants.Action.UPLOAD_VIDEO, UPLOAD_VIDEO);
-        actions.put(Constants.Action.UPLOAD_FILE, UPLOAD_FILE);
-        actions.put(Constants.Action.UPLOAD_SCRAWL, UPLOAD_SCRAWL);
-        actions.put(Constants.Action.LIST_FILE, LIST_FILE);
-        actions.put(Constants.Action.LIST_IMAGE, LIST_IMAGE);
-        actions.put(Constants.Action.CATCH_IMAGE, CATCH_IMAGE);
+        ACTIONS.put(Constants.Action.CONFIG, CONFIG);
+        ACTIONS.put(Constants.Action.UPLOAD_IMAGE, UPLOAD_IMAGE);
+        ACTIONS.put(Constants.Action.UPLOAD_VIDEO, UPLOAD_VIDEO);
+        ACTIONS.put(Constants.Action.UPLOAD_FILE, UPLOAD_FILE);
+        ACTIONS.put(Constants.Action.UPLOAD_SCRAWL, UPLOAD_SCRAWL);
+        ACTIONS.put(Constants.Action.LIST_FILE, LIST_FILE);
+        ACTIONS.put(Constants.Action.LIST_IMAGE, LIST_IMAGE);
+        ACTIONS.put(Constants.Action.CATCH_IMAGE, CATCH_IMAGE);
         
     }
 
     public static boolean containsKey(String action) {
-        return actions.containsKey(action);
+        return ACTIONS.containsKey(action);
     }
 
     public static int getAction(String action) {
-        return actions.get(action);
+        return ACTIONS.get(action);
     }
 }

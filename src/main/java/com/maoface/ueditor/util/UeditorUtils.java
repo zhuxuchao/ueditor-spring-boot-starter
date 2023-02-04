@@ -20,7 +20,7 @@ import static com.maoface.ueditor.consts.Constants.CALLBACK_NAME_REGEX;
  * @author zhuxuchao
  * @date 2020-04-15 20:35
  */
-public abstract class UeditorUtils {
+public class UeditorUtils {
     public static final char EXTENSION_SEPARATOR = '.';
 
     /**
@@ -40,7 +40,7 @@ public abstract class UeditorUtils {
      * @return
      */
     public static String callbackConfig(UeditorProperties properties, String callbackName) {
-        Map<String, Object> config = new HashMap<>();
+        Map<String, Object> config = new HashMap<>(16);
 
         config.putAll(BeanUtil.beanToMap(properties.getUploadImageConfig()));
         config.putAll(BeanUtil.beanToMap(properties.getUploadVideoConfig()));

@@ -4,7 +4,7 @@ package com.maoface.ueditor.consts;
  * @author zhuxuchao
  * @date 2020-04-02 13:39
  */
-public abstract class Constants {
+public class Constants {
     public static final String CALLBACK_NAME_REGEX = "^[a-zA-Z_]+[\\w0-9_]*$";
 
     public interface Action {
