@@ -1,13 +1,11 @@
 package com.maoface.ueditor.util;
 
-import com.maoface.ueditor.entity.UploadResponse;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -60,6 +58,14 @@ public class BeanUtils {
         Field[] fields = clazz.getDeclaredFields();
         Set<String> fieldNames = Arrays.stream(fields).map(Field::getName).collect(Collectors.toSet());
         return fieldNames;
+    }
+
+    public static PropertyDescriptor[] getPropertyDescriptors(Class<?> clazz) throws IntrospectionException {
+        BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
+
+        return (PropertyDescriptor[]) Arrays.stream(beanInfo.getPropertyDescriptors()).filter((t) -> {
+            return !"class".equals(t.getName());
+        }).toArray();
     }
 
 }
