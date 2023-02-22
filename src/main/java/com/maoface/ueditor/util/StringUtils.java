@@ -29,4 +29,23 @@ public class StringUtils {
         }
         return false;
     }
+
+    public static boolean isBlank(CharSequence str) {
+        int length;
+        if (str != null && (length = str.length()) != 0) {
+            for (int i = 0; i < length; ++i) {
+                if (!isBlankChar(str.charAt(i))) {
+                    return false;
+                }
+            }
+
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    public static boolean isBlankChar(int c) {
+        return Character.isWhitespace(c) || Character.isSpaceChar(c) || c == 65279 || c == 8234;
+    }
 }
