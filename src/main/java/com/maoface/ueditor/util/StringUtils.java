@@ -48,4 +48,9 @@ public class StringUtils {
     public static boolean isBlankChar(int c) {
         return Character.isWhitespace(c) || Character.isSpaceChar(c) || c == 65279 || c == 8234;
     }
+
+    public static boolean isNotBlank(CharSequence str) {
+        return !isBlank(str);
+    }
+
 }
