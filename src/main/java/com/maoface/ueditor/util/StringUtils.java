@@ -1,6 +1,7 @@
 package com.maoface.ueditor.util;
 
-import cn.hutool.core.lang.Assert;
+
+import org.springframework.util.Assert;
 
 import java.util.Objects;
 
@@ -53,4 +54,39 @@ public class StringUtils {
         return !isBlank(str);
     }
 
+    public static boolean hasBlank(CharSequence... strs) {
+        if (strs == null || strs.length == 0) {
+            return true;
+        } else {
+            CharSequence[] var1 = strs;
+            int var2 = strs.length;
+
+            for (int var3 = 0; var3 < var2; ++var3) {
+                CharSequence str = var1[var3];
+                if (isBlank(str)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    public static boolean isAllBlank(CharSequence... strs) {
+        if (strs == null || strs.length == 0) {
+            return true;
+        } else {
+            CharSequence[] var1 = strs;
+            int var2 = strs.length;
+
+            for (int var3 = 0; var3 < var2; ++var3) {
+                CharSequence str = var1[var3];
+                if (isNotBlank(str)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
 }
