@@ -94,4 +94,15 @@ public class StringUtils {
         return !isEmpty(str);
     }
 
+    public static void trim(String[] strs) {
+        if (null != strs) {
+            for(int i = 0; i < strs.length; ++i) {
+                String str = strs[i];
+                if (null != str) {
+                    strs[i] = str.trim();
+                }
+            }
+
+        }
+    }
 }
