@@ -105,4 +105,9 @@ public class StringUtils {
 
         }
     }
+
+    private static boolean isNullOrUndefinedStr(CharSequence str) {
+        String strString = str.toString().trim();
+        return "null".equals(strString) || "undefined".equals(strString);
+    }
 }
