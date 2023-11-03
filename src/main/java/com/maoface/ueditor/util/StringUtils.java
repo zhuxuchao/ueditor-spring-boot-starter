@@ -110,4 +110,12 @@ public class StringUtils {
         String strString = str.toString().trim();
         return "null".equals(strString) || "undefined".equals(strString);
     }
+
+    public static String nullToDefault(CharSequence str, String defaultStr) {
+        return str == null ? defaultStr : str.toString();
+    }
+
+    public static String emptyToDefault(CharSequence str, String defaultStr) {
+        return isEmpty(str) ? defaultStr : str.toString();
+    }
 }
