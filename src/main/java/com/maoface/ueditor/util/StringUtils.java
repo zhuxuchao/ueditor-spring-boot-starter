@@ -118,4 +118,35 @@ public class StringUtils {
     public static String emptyToDefault(CharSequence str, String defaultStr) {
         return isEmpty(str) ? defaultStr : str.toString();
     }
+
+    public static String blankToDefault(CharSequence str, String defaultStr) {
+        return isBlank(str) ? defaultStr : str.toString();
+    }
+
+    public static String subBefore(CharSequence string, char separator, boolean isLastSeparator) {
+        if (isEmpty(string)) {
+            return null == string ? null : string.toString();
+        } else {
+            String str = string.toString();
+            int pos = isLastSeparator ? str.lastIndexOf(separator) : str.indexOf(separator);
+            if (-1 == pos) {
+                return str;
+            } else {
+                return 0 == pos ? "" : str.substring(0, pos);
+            }
+        }
+    }
+
+    public static String subAfter(CharSequence string, CharSequence separator, boolean isLastSeparator) {
+        if (isEmpty(string)) {
+            return null == string ? null : string.toString();
+        } else if (separator == null) {
+            return "";
+        } else {
+            String str = string.toString();
+            String sep = separator.toString();
+            int pos = isLastSeparator ? str.lastIndexOf(sep) : str.indexOf(sep);
+            return -1 != pos && string.length() - 1 != pos ? str.substring(pos + separator.length()) : "";
+        }
+    }
 }
