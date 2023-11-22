@@ -149,4 +149,23 @@ public class StringUtils {
             return -1 != pos && string.length() - 1 != pos ? str.substring(pos + separator.length()) : "";
         }
     }
+
+    public static String subBetween(CharSequence str, CharSequence before, CharSequence after) {
+        if (str != null && before != null && after != null) {
+            String str2 = str.toString();
+            String before2 = before.toString();
+            String after2 = after.toString();
+            int start = str2.indexOf(before2);
+            if (start != -1) {
+                int end = str2.indexOf(after2, start + before2.length());
+                if (end != -1) {
+                    return str2.substring(start + before2.length(), end);
+                }
+            }
+
+            return null;
+        } else {
+            return null;
+        }
+    }
 }
