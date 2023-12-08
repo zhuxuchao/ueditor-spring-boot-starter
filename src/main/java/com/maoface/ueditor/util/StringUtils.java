@@ -168,4 +168,8 @@ public class StringUtils {
             return null;
         }
     }
+
+    public static String subBetween(CharSequence str, CharSequence beforeAndAfter) {
+        return subBetween(str, beforeAndAfter, beforeAndAfter);
+    }
 }
