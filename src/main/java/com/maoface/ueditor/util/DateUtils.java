@@ -5,6 +5,10 @@ import cn.hutool.core.util.StrUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -32,6 +36,16 @@ public abstract class DateUtils {
             return format(date, sdf);
         } else {
             return null;
+        }
+    }
+
+    public static LocalDateTime parseLocalDateTime(CharSequence dateStr, String format) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(format);
+
+        try {
+            return LocalDateTime.parse(dateStr, df);
+        } catch (DateTimeParseException var4) {
+            return LocalDate.parse(dateStr, df).atStartOfDay();
         }
     }
 
