@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,12 +15,18 @@ import java.util.TimeZone;
 
 /**
  * 日期类型工具类
+ *
  * @author zhuxc
  * @since 1.0
  */
 public abstract class DateUtils {
     public static final String NORM_DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
-    public static String format(Date date){
+
+    public static DateTime date() {
+        return new DateTime();
+    }
+
+    public static String format(Date date) {
         return format(date, NORM_DATETIME_PATTERN);
     }
 
@@ -47,6 +54,10 @@ public abstract class DateUtils {
         } catch (DateTimeParseException var4) {
             return LocalDate.parse(dateStr, df).atStartOfDay();
         }
+    }
+
+    public static Instant toInstant(Date date) {
+        return null == date ? null : date.toInstant();
     }
 
     private static String format(Date date, DateFormat format) {
