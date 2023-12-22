@@ -35,9 +35,9 @@ public class UeditorUtils {
     /**
      * 生成配置项
      *
-     * @param properties
-     * @param callbackName
-     * @return
+     * @param properties 配置对象
+     * @param callbackName JS回调函数名
+     * @return jsonp字符串
      */
     public static String callbackConfig(UeditorProperties properties, String callbackName) {
         Map<String, Object> config = new HashMap<>(16);

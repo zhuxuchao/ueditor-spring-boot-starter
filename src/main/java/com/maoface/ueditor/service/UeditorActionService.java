@@ -20,8 +20,8 @@ public interface UeditorActionService {
     /**
      * 解析request对象包含的文件流详情
      *
-     * @param request
-     * @return
+     * @param request 请求对象
+     * @return 封装了文件流的详情对象
      */
     default InputStreamDetail resolveRequest(HttpServletRequest request, String uploadFiledName) throws IOException {
         MultipartHttpServletRequest req = (MultipartHttpServletRequest) request;

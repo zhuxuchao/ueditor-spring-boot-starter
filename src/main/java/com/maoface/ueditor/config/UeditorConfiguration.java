@@ -12,10 +12,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
-import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
@@ -45,10 +44,10 @@ public class UeditorConfiguration {
     /**
      * 当前是Web应用，且Spring容器中存在UeditorActionService实现时，注册UeditorController
      *
-     * @param applicationContext
-     * @param properties
-     * @param actionService
-     * @return
+     * @param applicationContext 应用程序上下文对象
+     * @param properties Ueditor配置对象
+     * @param actionService Ueditor相关服务处理类
+     * @return Ueditor映射处理类 UeditorController
      */
     @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
     @ConditionalOnBean(UeditorActionService.class)
@@ -58,11 +57,11 @@ public class UeditorConfiguration {
         // 找到处理该路由的方法
         Method targetMethod = ReflectionUtils.findMethod(UeditorController.class, UeditorController.REQUEST_MAPPING_METHOD, HttpServletRequest.class);
         final String requestMappingPath = properties.getRequestMappingPath();
-        PatternsRequestCondition patternsRequestCondition = new PatternsRequestCondition(requestMappingPath);
-        RequestMethodsRequestCondition requestMethodsRequestCondition = new RequestMethodsRequestCondition(RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS);
-        RequestMappingInfo requestMappingInfo = new RequestMappingInfo(patternsRequestCondition, requestMethodsRequestCondition, null, null, null, null, null);
         final UeditorController editorController = new UeditorController(actionService, properties);
+        RequestMappingInfo requestMappingInfo = RequestMappingInfo.paths(requestMappingPath).methods(RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS).build();
         // 注册映射处理
+        Assert.notNull(targetMethod, "Ueditor请求映射方法【UeditorController#" + UeditorController.REQUEST_MAPPING_METHOD +
+                "】方法未找到");
         requestMappingHandlerMapping.registerMapping(requestMappingInfo, editorController, targetMethod);
         log.info("注册百度Ueditor后端服务[" + requestMappingPath + "]...........................................");
         return editorController;
