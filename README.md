@@ -20,19 +20,8 @@
         <version>5.3.0</version>
     </dependency>
     ```
-2. SpringBoot启动类加开启Ueditor服务注解
-    ```java
-    @SpringBootApplication
-    @EnableUeditor
-    public class DemoUeditorApplication {
-    
-        public static void main(String[] args) {
-            SpringApplication.run(DemoUeditorApplication.class, args);
-        }
-    
-    }
-    ```
-3. 实现UeditorActionService接口(可选)
+
+2. 实现UeditorActionService接口(可选)
     ```java
    import com.maoface.ueditor.service.UeditorActionService;
    public class MyUeditorActionServiceImpl implements UeditorActionService{

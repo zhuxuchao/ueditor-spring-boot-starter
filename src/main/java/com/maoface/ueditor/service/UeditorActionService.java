@@ -4,10 +4,10 @@ import com.maoface.ueditor.config.UploadCatcherProperties;
 import com.maoface.ueditor.entity.BaseResponse;
 import com.maoface.ueditor.entity.InputStreamDetail;
 import com.maoface.ueditor.util.UeditorUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;

@@ -1,13 +1,6 @@
 package com.maoface.ueditor.web;
 
-import com.maoface.ueditor.config.FileManagerProperties;
-import com.maoface.ueditor.config.ImageManagerProperties;
-import com.maoface.ueditor.config.UeditorProperties;
-import com.maoface.ueditor.config.UploadCatcherProperties;
-import com.maoface.ueditor.config.UploadFileProperties;
-import com.maoface.ueditor.config.UploadImageProperties;
-import com.maoface.ueditor.config.UploadScrawlProperties;
-import com.maoface.ueditor.config.UploadVideoProperties;
+import com.maoface.ueditor.config.*;
 import com.maoface.ueditor.consts.Actions;
 import com.maoface.ueditor.consts.Parameters;
 import com.maoface.ueditor.entity.BaseResponse;
@@ -15,28 +8,17 @@ import com.maoface.ueditor.entity.InputStreamDetail;
 import com.maoface.ueditor.service.UeditorActionService;
 import com.maoface.ueditor.util.UeditorUtils;
 import com.maoface.ueditor.util.Validator;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-import static com.maoface.ueditor.consts.Actions.CATCH_IMAGE;
-import static com.maoface.ueditor.consts.Actions.CONFIG;
-import static com.maoface.ueditor.consts.Actions.LIST_FILE;
-import static com.maoface.ueditor.consts.Actions.LIST_IMAGE;
-import static com.maoface.ueditor.consts.Actions.UPLOAD_FILE;
-import static com.maoface.ueditor.consts.Actions.UPLOAD_IMAGE;
-import static com.maoface.ueditor.consts.Actions.UPLOAD_SCRAWL;
-import static com.maoface.ueditor.consts.Actions.UPLOAD_VIDEO;
-import static com.maoface.ueditor.consts.Constants.Message.BLANK_ACTION;
-import static com.maoface.ueditor.consts.Constants.Message.ILLEGAL_CALLBACK;
-import static com.maoface.ueditor.consts.Constants.Message.INVALID_ACTION;
-import static com.maoface.ueditor.consts.Constants.Message.IO_ERROR;
-import static com.maoface.ueditor.consts.Constants.Message.SERVER_ERROR;
+import static com.maoface.ueditor.consts.Actions.*;
+import static com.maoface.ueditor.consts.Constants.Message.*;
 
 /**
  * @author zhuxuchao
