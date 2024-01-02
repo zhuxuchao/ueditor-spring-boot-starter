@@ -16,13 +16,13 @@ public class PathFormat {
     private static final String MINUTE = "ii";
     private static final String SECOND = "ss";
     private static final String RAND = "rand";
-    private static Pattern pattern = Pattern.compile("\\{([^\\}]+)\\}", Pattern.CASE_INSENSITIVE);
+    private static final Pattern pattern = Pattern.compile("\\{([^\\}]+)\\}", Pattern.CASE_INSENSITIVE);
     private static Date currentDate = null;
 
     public static String parse(String input) {
         Matcher matcher = pattern.matcher(input);
         PathFormat.currentDate = new Date();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(sb, PathFormat.getString(matcher.group(1)));
         }
@@ -43,11 +43,11 @@ public class PathFormat {
     public static String parse(String input, String filename) {
         Matcher matcher = pattern.matcher(input);
         PathFormat.currentDate = new Date();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         String matchStr;
         while (matcher.find()) {
             matchStr = matcher.group(1);
-            if (matchStr.indexOf("filename") != -1) {
+            if (matchStr.contains("filename")) {
                 filename = filename.replace("$", "\\$").replaceAll("[\\/:*?\"<>|]", "");
                 matcher.appendReplacement(sb, filename);
             } else {
@@ -116,9 +116,8 @@ public class PathFormat {
     }
 
     private static String getRandom(String pattern) {
-        int length = 0;
         pattern = pattern.split(":")[1].trim();
-        length = Integer.parseInt(pattern);
+        int length = Integer.parseInt(pattern);
         return (Math.random() + "").replace(".", "").substring(0, length);
     }
 }
