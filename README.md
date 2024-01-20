@@ -2,6 +2,7 @@
 百度UEditor富文本编辑器后台服务
 
 ### 如何使用：
+> SpringBoot 3.x, JDK17+
 1. 在工程pom.xml里加入相关依赖 
     ```xml
     <dependency>
@@ -12,12 +13,12 @@
     <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-core</artifactId>
-        <version>5.3.0</version>
+        <version>5.8.25</version>
     </dependency>
     <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-json</artifactId>
-        <version>5.3.0</version>
+        <version>5.8.25</version>
     </dependency>
     ```
 

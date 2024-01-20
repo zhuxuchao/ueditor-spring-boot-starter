@@ -20,7 +20,7 @@ public class UploadSnapscreenProperties {
     /**
      * 上传保存路径,可以自定义保存路径和文件名格式
      */
-    private String snapscreenPathFormat = "/com/zhuxc/ueditor/upload/image/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
+    private String snapscreenPathFormat = "/ueditor/upload/image/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
     /**
      * 插入的图片浮动方式
      */

@@ -20,7 +20,7 @@ public class ImageManagerProperties {
     /**
      * 指定要列出图片的目录
      */
-    private String imageManagerListPath = "/com/zhuxc/ueditor/upload/image/";
+    private String imageManagerListPath = "/ueditor/upload/image/";
     /**
      * 图片访问路径前缀
      */

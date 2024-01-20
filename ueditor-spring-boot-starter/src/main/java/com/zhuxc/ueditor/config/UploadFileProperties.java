@@ -32,7 +32,7 @@ public class UploadFileProperties {
     /**
      * 上传保存路径,可以自定义保存路径和文件名格式
      */
-    private String filePathFormat = "/com/zhuxc/ueditor/upload/file/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
+    private String filePathFormat = "/ueditor/upload/file/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
     /**
      * 上传文件格式限制
      */

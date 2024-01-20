@@ -32,7 +32,7 @@ public class UploadVideoProperties {
     /**
      * 上传保存路径,可以自定义保存路径和文件名格式
      */
-    private String videoPathFormat = "/com/zhuxc/ueditor/upload/video/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
+    private String videoPathFormat = "/ueditor/upload/video/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
     /**
      * 上传视频格式限制
      */

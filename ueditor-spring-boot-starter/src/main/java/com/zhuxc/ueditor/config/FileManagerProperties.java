@@ -20,7 +20,7 @@ public class FileManagerProperties {
     /**
      * 指定要列出文件的目录
      */
-    private String fileManagerListPath = "/com/zhuxc/ueditor/upload/file/";
+    private String fileManagerListPath = "/ueditor/upload/file/";
     /**
      * 文件访问路径前缀
      */

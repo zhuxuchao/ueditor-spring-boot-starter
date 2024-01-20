@@ -28,7 +28,7 @@ public class UploadImageProperties {
     /**
      * 上传保存路径,可以自定义保存路径和文件名格式
      */
-    private String imagePathFormat = "/com/zhuxc/ueditor/upload/image/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
+    private String imagePathFormat = "/ueditor/upload/image/{yyyy}{mm}{dd}{hh}{ii}{ss}{rand:6}";
     /**
      * 图片访问路径前缀
      */
