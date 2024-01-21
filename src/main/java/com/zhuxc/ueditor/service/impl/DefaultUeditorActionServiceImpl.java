@@ -165,7 +165,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
     }
 
     @Override
-    public BaseResponse listFile(int start, int size) throws IOException {
+    public BaseResponse listFile(int start, int size) {
         final FileManagerProperties properties = this.properties.getFileManagerConfig();
         final String listPath = properties.getFileManagerListPath();
         final Set<String> allowFiles = properties.getFileManagerAllowFiles();
@@ -183,7 +183,7 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
     }
 
     @Override
-    public BaseResponse listImage(int start, int size) throws IOException {
+    public BaseResponse listImage(int start, int size) {
         final ImageManagerProperties properties = this.properties.getImageManagerConfig();
         final String listPath = properties.getImageManagerListPath();
         final Set<String> allowFiles = properties.getImageManagerAllowFiles();
@@ -200,16 +200,9 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
         return response;
     }
 
-    /**
-     * 截图
-     *
-     * @param properties
-     * @param source
-     * @return
-     * @throws IOException
-     */
+
     @Override
-    public BaseResponse catchImage(UploadCatcherProperties properties, String... source) throws IOException {
+    public BaseResponse catchImage(UploadCatcherProperties properties, String... source) {
         CatchImageResponse response = new CatchImageResponse();
         response.setState(Constants.Message.SUCCESS);
         List<CatchImageResponse.CatchImageItem> list = new ArrayList<>(source.length);
@@ -253,22 +246,19 @@ public class DefaultUeditorActionServiceImpl implements UeditorActionService {
     }
 
     private List<File> getFiles(String listPath, Set<String> allowFiles) {
-        return FileUtil.loopFiles(listPath, new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                final String suffix = UeditorUtils.getSuffix(file.getName());
-                return suffix != null && allowFiles.contains(suffix);
-            }
+        return FileUtil.loopFiles(listPath, file -> {
+            final String suffix = UeditorUtils.getSuffix(file.getName());
+            return allowFiles.contains(suffix);
         });
     }
 
     /**
      * 文件列表
      *
-     * @param files
-     * @param start
-     * @param size
-     * @return
+     * @param files 文件列表
+     * @param start 开始索引
+     * @param size 条数
+     * @return 新文件列表
      */
     private List<ListFileResponse.FileItem> subList(List<File> files, int start, int size) {
         List<ListFileResponse.FileItem> listItem = new ArrayList<>();

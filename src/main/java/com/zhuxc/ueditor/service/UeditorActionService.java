@@ -41,7 +41,7 @@ public interface UeditorActionService {
      * 上传图片
      *
      * @param streamDetail 文件流
-     * @return
+     * @return 处理结果
      */
     BaseResponse uploadImage(InputStreamDetail streamDetail) throws IOException;
 
@@ -49,7 +49,7 @@ public interface UeditorActionService {
      * 上传视频
      *
      * @param streamDetail 文件流
-     * @return
+     * @return 处理结果
      */
     BaseResponse uploadVideo(InputStreamDetail streamDetail) throws IOException;
 
@@ -57,7 +57,7 @@ public interface UeditorActionService {
      * 上传附件
      *
      * @param streamDetail 文件流
-     * @return
+     * @return 处理结果
      */
     BaseResponse uploadFile(InputStreamDetail streamDetail) throws IOException;
 
@@ -65,7 +65,7 @@ public interface UeditorActionService {
      * 上传涂鸦
      *
      * @param streamDetail 文件流
-     * @return
+     * @return 处理结果
      */
     BaseResponse uploadScrawl(InputStreamDetail streamDetail) throws IOException;
 
@@ -73,34 +73,34 @@ public interface UeditorActionService {
      * 上传截图
      *
      * @param streamDetail 文件流
-     * @return
+     * @return 处理结果
      */
     BaseResponse uploadSnapscreen(InputStreamDetail streamDetail) throws IOException;
 
     /**
      * 文件管理
      *
-     * @param start
-     * @param size
-     * @return
+     * @param start 开始索引
+     * @param size 条数
+     * @return 文件列表
      */
     BaseResponse listFile(int start, int size) throws IOException;
 
     /**
      * 图片管理
      *
-     * @param start
-     * @param size
-     * @return
+     * @param start 开始索引
+     * @param size 条数
+     * @return 图片列表
      */
     BaseResponse listImage(int start, int size) throws IOException;
 
     /**
      * 抓取远程图片
      *
-     * @param properties
-     * @param source
-     * @return
+     * @param properties 配置类
+     * @param source 源地址
+     * @return 图片列表
      */
     BaseResponse catchImage(UploadCatcherProperties properties, String... source) throws IOException;
 }

@@ -26,7 +26,7 @@ public class UeditorUtils {
     /**
      * callback参数验证
      *
-     * @param callbackName
+     * @param callbackName 回调函数名
      */
     public static boolean validCallbackName(String callbackName) {
         return callbackName.matches(CALLBACK_NAME_REGEX);
@@ -64,12 +64,11 @@ public class UeditorUtils {
 
     public static void upload(byte[] bytes, String path) throws IOException {
         final File resource = new File(path);
-        if (!resource.exists()) {
-            resource.getParentFile().mkdirs();
+        if (!resource.exists() && resource.getParentFile().mkdirs()) {
+            FileOutputStream outputStream = new FileOutputStream(resource);
+            outputStream.write(bytes);
+            outputStream.close();
         }
-        FileOutputStream outputStream = new FileOutputStream(resource);
-        outputStream.write(bytes);
-        outputStream.close();
     }
 
     /**
@@ -77,8 +76,8 @@ public class UeditorUtils {
      * --> .jpg <br>
      * --> .txt
      *
-     * @param originalFileName
-     * @return
+     * @param originalFileName 原始文件名
+     * @return 文件名后缀
      */
     public static String getSuffix(String originalFileName) {
         final int i = originalFileName.lastIndexOf(EXTENSION_SEPARATOR);
