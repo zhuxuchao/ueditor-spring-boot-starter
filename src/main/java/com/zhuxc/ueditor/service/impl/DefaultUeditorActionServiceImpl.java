@@ -11,7 +11,6 @@ import com.zhuxc.ueditor.util.UeditorUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
