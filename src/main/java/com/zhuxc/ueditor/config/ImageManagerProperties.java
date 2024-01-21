@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 图片管理相关配置
  * @author zhuxuchao
  * @date 2020-04-15 16:27
  */

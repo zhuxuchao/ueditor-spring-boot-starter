@@ -4,6 +4,7 @@ import com.zhuxc.ueditor.consts.Constants;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 上传涂鸦相关配置
  * @author zhuxuchao
  * @date 2020-04-15 16:26
  */

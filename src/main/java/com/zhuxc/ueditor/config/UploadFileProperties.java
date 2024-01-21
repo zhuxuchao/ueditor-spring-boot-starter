@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 上传文件相关配置
  * @author zhuxuchao
  * @date 2020-04-15 16:17
  */
