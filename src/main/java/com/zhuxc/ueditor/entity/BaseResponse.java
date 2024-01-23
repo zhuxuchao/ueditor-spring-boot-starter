@@ -2,7 +2,7 @@ package com.zhuxc.ueditor.entity;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-15 20:08
+ * @since 2020-04-15 20:08
  */
 public class BaseResponse implements Response {
     String state;

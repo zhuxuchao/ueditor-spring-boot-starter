@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 上传图片相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:01
+ * @since 2020-04-15 16:01
  */
 @ConfigurationProperties(prefix = "ueditor.config.upload-image-config")
 public class UploadImageProperties {

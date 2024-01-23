@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 上传涂鸦相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:26
+ * @since 2020-04-15 16:26
  */
 @ConfigurationProperties(prefix = "ueditor.config.upload-scrawl-config")
 public class UploadScrawlProperties {

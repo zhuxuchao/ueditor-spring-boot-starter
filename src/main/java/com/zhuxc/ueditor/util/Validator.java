@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author zhuxuchao
- * @date 2020-10-13 9:49
+ * @since 2020-10-13 9:49
  */
 public class Validator {
     public static final Pattern GENERAL = Pattern.compile("^\\w+$");

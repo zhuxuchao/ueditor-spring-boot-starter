@@ -2,7 +2,7 @@ package com.zhuxc.ueditor.consts;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-02 13:39
+ * @since 2020-04-02 13:39
  */
 public class Constants {
     public static final String CALLBACK_NAME_REGEX = "^[a-zA-Z_]+[\\w0-9_]*$";

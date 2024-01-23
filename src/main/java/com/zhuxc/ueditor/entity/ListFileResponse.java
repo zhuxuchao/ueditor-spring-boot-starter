@@ -4,13 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 文件管理响应对象
  * @author zhuxuchao
- * @date 2020-04-15 21:19
+ * @since 2020-04-15 21:19
  */
-
 public class ListFileResponse extends BaseResponse {
+    /**
+     * 开始索引
+     */
     private int start;
+    /**
+     * 文件总数量
+     */
     private int total;
+    /**
+     * 文件列表
+     */
     private List<FileItem> list;
 
     public int getStart() {
@@ -37,7 +46,13 @@ public class ListFileResponse extends BaseResponse {
         this.list = list;
     }
 
+    /**
+     * 文件对象
+     */
     public static class FileItem implements Serializable {
+        /**
+         * 路径
+         */
         private String url;
 
         public FileItem() {

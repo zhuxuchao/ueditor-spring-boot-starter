@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 文件管理相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:26
+ * @since 2020-04-15 16:26
  */
 @ConfigurationProperties(prefix = "ueditor.config.file-manager-config")
 public class FileManagerProperties {

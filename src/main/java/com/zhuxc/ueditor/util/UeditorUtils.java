@@ -18,7 +18,7 @@ import static com.zhuxc.ueditor.consts.Constants.CALLBACK_NAME_REGEX;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-15 20:35
+ * @since 2020-04-15 20:35
  */
 public class UeditorUtils {
     public static final char EXTENSION_SEPARATOR = '.';

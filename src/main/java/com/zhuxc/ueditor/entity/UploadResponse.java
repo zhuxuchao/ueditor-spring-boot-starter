@@ -2,7 +2,7 @@ package com.zhuxc.ueditor.entity;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-02 14:24
+ * @since 2020-04-02 14:24
  */
 public class UploadResponse extends BaseResponse {
     private String url;

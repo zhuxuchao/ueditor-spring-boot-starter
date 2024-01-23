@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 上传视频相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:10
+ * @since 2020-04-15 16:10
  */
 @ConfigurationProperties(prefix = "ueditor.config.upload-video-config")
 public class UploadVideoProperties {

@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 上传远程抓取图片相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:23
+ * @since 2020-04-15 16:23
  */
 @ConfigurationProperties(prefix = "ueditor.config.upload-catcher-config")
 public class UploadCatcherProperties {

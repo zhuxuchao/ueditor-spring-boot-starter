@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-15 21:25
+ * @since 2020-04-15 21:25
  */
 public class CatchImageResponse extends BaseResponse {
     private List<CatchImageItem> list;

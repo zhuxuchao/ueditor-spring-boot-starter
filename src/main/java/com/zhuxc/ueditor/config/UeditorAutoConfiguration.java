@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 /**
  * 自动配置{@link UeditorController}映射和{@link UeditorActionService} 服务
  * @author zhuxuchao
- * @date 2020-04-02 11:13
+ * @since 2020-04-02 11:13
  */
 @Configuration
 @EnableConfigurationProperties({UeditorProperties.class})

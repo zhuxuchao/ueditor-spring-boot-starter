@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 /**
  * 上传截图相关配置
  * @author zhuxuchao
- * @date 2020-04-15 16:24
+ * @since 2020-04-15 16:24
  */
 @ConfigurationProperties(prefix = "ueditor.config.upload-snapscreen-config")
 public class UploadSnapscreenProperties {

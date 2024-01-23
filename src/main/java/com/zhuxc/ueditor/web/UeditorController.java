@@ -22,7 +22,7 @@ import static com.zhuxc.ueditor.consts.Constants.Message.*;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-02 11:16
+ * @since 2020-04-02 11:16
  */
 public class UeditorController {
     private static final Logger logger = LoggerFactory.getLogger(UeditorController.class);

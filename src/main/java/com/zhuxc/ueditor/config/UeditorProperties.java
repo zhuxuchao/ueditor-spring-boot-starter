@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 /**
  * Ueditor配置类
  * @author zhuxuchao
- * @date 2020-04-02 10:46
+ * @since 2020-04-02 10:46
  */
 @EnableConfigurationProperties({
         UploadImageProperties.class,

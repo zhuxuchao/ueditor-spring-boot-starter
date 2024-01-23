@@ -2,7 +2,7 @@ package com.zhuxc.ueditor.consts;
 
 /**
  * @author zhuxuchao
- * @date 2020-04-16 15:57
+ * @since 2020-04-16 15:57
  */
 public class Parameters {
     public final static String CALLBACK = "callback";
