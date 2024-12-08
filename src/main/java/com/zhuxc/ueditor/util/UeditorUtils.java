@@ -2,7 +2,7 @@ package com.zhuxc.ueditor.util;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.json.JSONUtil;
-import com.zhuxc.ueditor.config.UeditorProperties;
+import com.zhuxc.ueditor.config.UEditorProperties;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
@@ -39,7 +39,7 @@ public class UeditorUtils {
      * @param callbackName JS回调函数名
      * @return jsonp字符串
      */
-    public static String callbackConfig(UeditorProperties properties, String callbackName) {
+    public static String callbackConfig(UEditorProperties properties, String callbackName) {
         Map<String, Object> config = new HashMap<>(16);
 
         config.putAll(BeanUtil.beanToMap(properties.getUploadImageConfig()));

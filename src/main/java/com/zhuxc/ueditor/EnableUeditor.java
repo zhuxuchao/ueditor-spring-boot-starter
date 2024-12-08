@@ -1,6 +1,6 @@
 package com.zhuxc.ueditor;
 
-import com.zhuxc.ueditor.config.UeditorAutoConfiguration;
+import com.zhuxc.ueditor.config.UEditorAutoConfiguration;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
@@ -12,6 +12,6 @@ import java.lang.annotation.*;
 @Retention(value = RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.TYPE})
 @Documented
-@Import({UeditorAutoConfiguration.class})
+@Import({UEditorAutoConfiguration.class})
 public @interface EnableUeditor {
 }

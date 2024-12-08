@@ -5,7 +5,7 @@ import com.zhuxc.ueditor.consts.Actions;
 import com.zhuxc.ueditor.consts.Parameters;
 import com.zhuxc.ueditor.entity.BaseResponse;
 import com.zhuxc.ueditor.entity.InputStreamDetail;
-import com.zhuxc.ueditor.service.UeditorActionService;
+import com.zhuxc.ueditor.service.UEditorActionService;
 import com.zhuxc.ueditor.util.UeditorUtils;
 import com.zhuxc.ueditor.util.Validator;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,13 +24,13 @@ import static com.zhuxc.ueditor.consts.Constants.Message.*;
  * @author zhuxuchao
  * @since 2020-04-02 11:16
  */
-public class UeditorController {
-    private static final Logger logger = LoggerFactory.getLogger(UeditorController.class);
+public class UEditorController {
+    private static final Logger logger = LoggerFactory.getLogger(UEditorController.class);
     public static final String REQUEST_MAPPING_METHOD = "action";
-    private final UeditorActionService actionService;
-    private final UeditorProperties properties;
+    private final UEditorActionService actionService;
+    private final UEditorProperties properties;
 
-    public UeditorController(UeditorActionService actionService, UeditorProperties properties) {
+    public UEditorController(UEditorActionService actionService, UEditorProperties properties) {
         this.actionService = actionService;
         this.properties = properties;
     }
@@ -130,10 +130,10 @@ public class UeditorController {
                 }
             }
         } catch (IOException e) {
-            logger.error("Ueditor富文本文件上传IO异常", e);
+            logger.error("UEditor富文本文件上传IO异常", e);
             return new ResponseEntity<>(new BaseResponse(IO_ERROR), HttpStatus.OK);
         } catch (Exception e) {
-            logger.error("Ueditor富文本文件上传异常", e);
+            logger.error("UEditor富文本文件上传异常", e);
             return new ResponseEntity<>(new BaseResponse(SERVER_ERROR), HttpStatus.OK);
         }
     }

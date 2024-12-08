@@ -20,9 +20,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
         ImageManagerProperties.class
 })
 @ConfigurationProperties(prefix = "ueditor.config")
-public class UeditorProperties {
+public class UEditorProperties {
     /**
-     * Ueditor后端服务映射地址
+     * UEditor后端服务映射地址
      */
     private String requestMappingPath = "/baidu/ueditor/action";
     /**

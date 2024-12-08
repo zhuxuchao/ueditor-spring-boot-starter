@@ -16,7 +16,7 @@ import java.util.Map;
  * @author zhuxuchao
  * @since 2020-04-02 11:48
  */
-public interface UeditorActionService {
+public interface UEditorActionService {
     /**
      * 解析request对象包含的文件流详情
      *

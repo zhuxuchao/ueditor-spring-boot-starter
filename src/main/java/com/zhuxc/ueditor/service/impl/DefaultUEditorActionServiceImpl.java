@@ -5,7 +5,7 @@ import cn.hutool.core.io.IoUtil;
 import com.zhuxc.ueditor.config.*;
 import com.zhuxc.ueditor.consts.Constants;
 import com.zhuxc.ueditor.entity.*;
-import com.zhuxc.ueditor.service.UeditorActionService;
+import com.zhuxc.ueditor.service.UEditorActionService;
 import com.zhuxc.ueditor.util.PathFormat;
 import com.zhuxc.ueditor.util.UeditorUtils;
 import org.springframework.util.CollectionUtils;
@@ -23,10 +23,10 @@ import java.util.Set;
  * @author zhuxuchao
  * @since 2020-04-16 16:48
  */
-public class DefaultUeditorActionServiceImpl implements UeditorActionService {
-    private final UeditorProperties properties;
+public class DefaultUEditorActionServiceImpl implements UEditorActionService {
+    private final UEditorProperties properties;
 
-    public DefaultUeditorActionServiceImpl(UeditorProperties properties) {
+    public DefaultUEditorActionServiceImpl(UEditorProperties properties) {
         this.properties = properties;
     }
 
