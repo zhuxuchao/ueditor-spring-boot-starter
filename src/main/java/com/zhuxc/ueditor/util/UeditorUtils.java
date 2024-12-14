@@ -42,14 +42,14 @@ public class UeditorUtils {
     public static String callbackConfig(UEditorProperties properties, String callbackName) {
         Map<String, Object> config = new HashMap<>(16);
 
-        config.putAll(BeanUtil.beanToMap(properties.getUploadImageConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getUploadVideoConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getUploadFileConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getUploadCatcherConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getUploadScrawlConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getUploadSnapscreenConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getFileManagerConfig()));
-        config.putAll(BeanUtil.beanToMap(properties.getImageManagerConfig()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadImageProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadVideoProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadFileProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadCatcherProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadScrawlProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getUploadSnapscreenProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getFileManagerProperties()));
+        config.putAll(BeanUtil.beanToMap(properties.getImageManagerProperties()));
 
         return callbackStr(config, callbackName);
     }

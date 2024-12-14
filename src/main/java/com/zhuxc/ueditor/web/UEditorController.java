@@ -60,31 +60,31 @@ public class UEditorController {
                     return new ResponseEntity<>(config, HttpStatus.OK);
                 }
                 case UPLOAD_FILE: {
-                    UploadFileProperties properties = this.properties.getUploadFileConfig();
+                    UploadFileProperties properties = this.properties.getUploadFileProperties();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getFileFieldName());
                     BaseResponse response = actionService.uploadFile(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_SCRAWL: {
-                    UploadScrawlProperties properties = this.properties.getUploadScrawlConfig();
+                    UploadScrawlProperties properties = this.properties.getUploadScrawlProperties();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getScrawlFieldName());
                     BaseResponse response = actionService.uploadScrawl(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_VIDEO: {
-                    UploadVideoProperties properties = this.properties.getUploadVideoConfig();
+                    UploadVideoProperties properties = this.properties.getUploadVideoProperties();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getVideoFieldName());
                     BaseResponse response = actionService.uploadVideo(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case UPLOAD_IMAGE: {
-                    UploadImageProperties properties = this.properties.getUploadImageConfig();
+                    UploadImageProperties properties = this.properties.getUploadImageProperties();
                     InputStreamDetail inputStreamDetail = actionService.resolveRequest(request, properties.getImageFieldName());
                     BaseResponse response = actionService.uploadImage(inputStreamDetail);
                     return new ResponseEntity<>(response, HttpStatus.OK);
                 }
                 case LIST_FILE: {
-                    FileManagerProperties properties = this.properties.getFileManagerConfig();
+                    FileManagerProperties properties = this.properties.getFileManagerProperties();
                     String startStr = request.getParameter(Parameters.START);
                     String sizeStr = request.getParameter(Parameters.SIZE);
                     int start = 0;
@@ -101,7 +101,7 @@ public class UEditorController {
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
                 case LIST_IMAGE: {
-                    ImageManagerProperties properties = this.properties.getImageManagerConfig();
+                    ImageManagerProperties properties = this.properties.getImageManagerProperties();
                     String startStr = request.getParameter(Parameters.START);
                     String sizeStr = request.getParameter(Parameters.SIZE);
                     int start = 0;
@@ -118,7 +118,7 @@ public class UEditorController {
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
                 case CATCH_IMAGE: {
-                    UploadCatcherProperties properties = this.properties.getUploadCatcherConfig();
+                    UploadCatcherProperties properties = this.properties.getUploadCatcherProperties();
                     String[] source = request.getParameterValues(Parameters.SOURCE);
                     BaseResponse response = actionService.catchImage(properties, source);
                     // 需要支持callback参数,返回jsonp格式 

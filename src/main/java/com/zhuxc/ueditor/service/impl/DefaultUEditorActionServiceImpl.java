@@ -32,7 +32,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse uploadImage(InputStreamDetail streamDetail) throws IOException {
-        UploadImageProperties properties = this.properties.getUploadImageConfig();
+        UploadImageProperties properties = this.properties.getUploadImageProperties();
         if (streamDetail == null || streamDetail.getInputStream() == null) {
             return new BaseResponse(Constants.Message.NOTFOUND_UPLOAD_DATA);
         }
@@ -61,7 +61,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse uploadVideo(InputStreamDetail streamDetail) throws IOException {
-        UploadVideoProperties properties = this.properties.getUploadVideoConfig();
+        UploadVideoProperties properties = this.properties.getUploadVideoProperties();
         if (streamDetail == null || streamDetail.getInputStream() == null) {
             return new BaseResponse(Constants.Message.NOTFOUND_UPLOAD_DATA);
         }
@@ -90,7 +90,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse uploadFile(InputStreamDetail streamDetail) throws IOException {
-        UploadFileProperties properties = this.properties.getUploadFileConfig();
+        UploadFileProperties properties = this.properties.getUploadFileProperties();
         if (streamDetail == null || streamDetail.getInputStream() == null) {
             return new BaseResponse(Constants.Message.NOTFOUND_UPLOAD_DATA);
         }
@@ -119,7 +119,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse uploadScrawl(InputStreamDetail streamDetail) throws IOException {
-        UploadScrawlProperties properties = this.properties.getUploadScrawlConfig();
+        UploadScrawlProperties properties = this.properties.getUploadScrawlProperties();
         if (streamDetail == null || streamDetail.getInputStream() == null) {
             return new BaseResponse(Constants.Message.NOTFOUND_UPLOAD_DATA);
         }
@@ -144,7 +144,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse uploadSnapscreen(InputStreamDetail streamDetail) throws IOException {
-        UploadSnapscreenProperties properties = this.properties.getUploadSnapscreenConfig();
+        UploadSnapscreenProperties properties = this.properties.getUploadSnapscreenProperties();
         if (streamDetail == null || streamDetail.getInputStream() == null) {
             return new BaseResponse(Constants.Message.NOTFOUND_UPLOAD_DATA);
         }
@@ -165,7 +165,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse listFile(int start, int size) {
-        final FileManagerProperties properties = this.properties.getFileManagerConfig();
+        final FileManagerProperties properties = this.properties.getFileManagerProperties();
         final String listPath = properties.getFileManagerListPath();
         final Set<String> allowFiles = properties.getFileManagerAllowFiles();
         final List<File> files = getFiles(listPath, allowFiles);
@@ -183,7 +183,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     @Override
     public BaseResponse listImage(int start, int size) {
-        final ImageManagerProperties properties = this.properties.getImageManagerConfig();
+        final ImageManagerProperties properties = this.properties.getImageManagerProperties();
         final String listPath = properties.getImageManagerListPath();
         final Set<String> allowFiles = properties.getImageManagerAllowFiles();
         final List<File> files = getFiles(listPath, allowFiles);

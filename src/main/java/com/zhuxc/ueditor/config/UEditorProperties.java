@@ -1,11 +1,11 @@
 package com.zhuxc.ueditor.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
- * Ueditor配置类
+ * UEditor配置类
  * @author zhuxuchao
  * @since 2020-04-02 10:46
  */
@@ -28,43 +28,43 @@ public class UEditorProperties {
     /**
      * 上传图片配置项
      */
-    @Autowired
-    private UploadImageProperties uploadImageConfig;
+    @Resource
+    private UploadImageProperties uploadImageProperties;
     /**
      * 上传视频配置项
      */
-    @Autowired
-    private UploadVideoProperties uploadVideoConfig;
+    @Resource
+    private UploadVideoProperties uploadVideoProperties;
     /**
      * 上传附件配置项
      */
-    @Autowired
-    private UploadFileProperties uploadFileConfig;
+    @Resource
+    private UploadFileProperties uploadFileProperties;
     /**
      * 上传涂鸦图片配置项
      */
-    @Autowired
-    private UploadScrawlProperties uploadScrawlConfig;
+    @Resource
+    private UploadScrawlProperties uploadScrawlProperties;
     /**
      * 上传抓取远程图片配置项
      */
-    @Autowired
-    private UploadCatcherProperties uploadCatcherConfig;
+    @Resource
+    private UploadCatcherProperties uploadCatcherProperties;
     /**
      * 上传截图配置项
      */
-    @Autowired
-    private UploadSnapscreenProperties uploadSnapscreenConfig;
+    @Resource
+    private UploadSnapscreenProperties uploadSnapscreenProperties;
     /**
      * 列出指定目录下的图片
      */
-    @Autowired
-    private ImageManagerProperties imageManagerConfig;
+    @Resource
+    private ImageManagerProperties imageManagerProperties;
     /**
      * 列出指定目录下的文件
      */
-    @Autowired
-    private FileManagerProperties fileManagerConfig;
+    @Resource
+    private FileManagerProperties fileManagerProperties;
 
     public String getRequestMappingPath() {
         return requestMappingPath;
@@ -74,67 +74,67 @@ public class UEditorProperties {
         this.requestMappingPath = requestMappingPath;
     }
 
-    public UploadImageProperties getUploadImageConfig() {
-        return uploadImageConfig;
+    public UploadImageProperties getUploadImageProperties() {
+        return uploadImageProperties;
     }
 
-    public void setUploadImageConfig(UploadImageProperties uploadImageConfig) {
-        this.uploadImageConfig = uploadImageConfig;
+    public void setUploadImageProperties(UploadImageProperties uploadImageProperties) {
+        this.uploadImageProperties = uploadImageProperties;
     }
 
-    public UploadVideoProperties getUploadVideoConfig() {
-        return uploadVideoConfig;
+    public UploadVideoProperties getUploadVideoProperties() {
+        return uploadVideoProperties;
     }
 
-    public void setUploadVideoConfig(UploadVideoProperties uploadVideoConfig) {
-        this.uploadVideoConfig = uploadVideoConfig;
+    public void setUploadVideoProperties(UploadVideoProperties uploadVideoProperties) {
+        this.uploadVideoProperties = uploadVideoProperties;
     }
 
-    public UploadFileProperties getUploadFileConfig() {
-        return uploadFileConfig;
+    public UploadFileProperties getUploadFileProperties() {
+        return uploadFileProperties;
     }
 
-    public void setUploadFileConfig(UploadFileProperties uploadFileConfig) {
-        this.uploadFileConfig = uploadFileConfig;
+    public void setUploadFileProperties(UploadFileProperties uploadFileProperties) {
+        this.uploadFileProperties = uploadFileProperties;
     }
 
-    public UploadScrawlProperties getUploadScrawlConfig() {
-        return uploadScrawlConfig;
+    public UploadScrawlProperties getUploadScrawlProperties() {
+        return uploadScrawlProperties;
     }
 
-    public void setUploadScrawlConfig(UploadScrawlProperties uploadScrawlConfig) {
-        this.uploadScrawlConfig = uploadScrawlConfig;
+    public void setUploadScrawlProperties(UploadScrawlProperties uploadScrawlProperties) {
+        this.uploadScrawlProperties = uploadScrawlProperties;
     }
 
-    public UploadCatcherProperties getUploadCatcherConfig() {
-        return uploadCatcherConfig;
+    public UploadCatcherProperties getUploadCatcherProperties() {
+        return uploadCatcherProperties;
     }
 
-    public void setUploadCatcherConfig(UploadCatcherProperties uploadCatcherConfig) {
-        this.uploadCatcherConfig = uploadCatcherConfig;
+    public void setUploadCatcherProperties(UploadCatcherProperties uploadCatcherProperties) {
+        this.uploadCatcherProperties = uploadCatcherProperties;
     }
 
-    public UploadSnapscreenProperties getUploadSnapscreenConfig() {
-        return uploadSnapscreenConfig;
+    public UploadSnapscreenProperties getUploadSnapscreenProperties() {
+        return uploadSnapscreenProperties;
     }
 
-    public void setUploadSnapscreenConfig(UploadSnapscreenProperties uploadSnapscreenConfig) {
-        this.uploadSnapscreenConfig = uploadSnapscreenConfig;
+    public void setUploadSnapscreenProperties(UploadSnapscreenProperties uploadSnapscreenProperties) {
+        this.uploadSnapscreenProperties = uploadSnapscreenProperties;
     }
 
-    public ImageManagerProperties getImageManagerConfig() {
-        return imageManagerConfig;
+    public ImageManagerProperties getImageManagerProperties() {
+        return imageManagerProperties;
     }
 
-    public void setImageManagerConfig(ImageManagerProperties imageManagerConfig) {
-        this.imageManagerConfig = imageManagerConfig;
+    public void setImageManagerProperties(ImageManagerProperties imageManagerProperties) {
+        this.imageManagerProperties = imageManagerProperties;
     }
 
-    public FileManagerProperties getFileManagerConfig() {
-        return fileManagerConfig;
+    public FileManagerProperties getFileManagerProperties() {
+        return fileManagerProperties;
     }
 
-    public void setFileManagerConfig(FileManagerProperties fileManagerConfig) {
-        this.fileManagerConfig = fileManagerConfig;
+    public void setFileManagerProperties(FileManagerProperties fileManagerProperties) {
+        this.fileManagerProperties = fileManagerProperties;
     }
 }
