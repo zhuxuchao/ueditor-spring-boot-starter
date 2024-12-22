@@ -3,7 +3,6 @@ package com.zhuxc.ueditor.util;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.json.JSONUtil;
 import com.zhuxc.ueditor.config.UEditorProperties;
-import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,7 +19,7 @@ import static com.zhuxc.ueditor.consts.Constants.CALLBACK_NAME_REGEX;
  * @author zhuxuchao
  * @since 2020-04-15 20:35
  */
-public class UeditorUtils {
+public class UEditorUtils {
     public static final char EXTENSION_SEPARATOR = '.';
 
     /**
@@ -56,10 +55,11 @@ public class UeditorUtils {
 
     public static String callbackStr(Object response, String callbackName) {
         final String str = JSONUtil.toJsonStr(response);
-        if (!StringUtils.hasText(callbackName) || !validCallbackName(callbackName)) {
-            return str;
+
+        if (validCallbackName(callbackName)) {
+            return callbackName + "(" + str + ");";
         }
-        return callbackName + "(" + str + ");";
+        return str;
     }
 
     public static void upload(byte[] bytes, String path) throws IOException {

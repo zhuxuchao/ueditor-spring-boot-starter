@@ -3,7 +3,7 @@ package com.zhuxc.ueditor.service;
 import com.zhuxc.ueditor.config.UploadCatcherProperties;
 import com.zhuxc.ueditor.entity.BaseResponse;
 import com.zhuxc.ueditor.entity.InputStreamDetail;
-import com.zhuxc.ueditor.util.UeditorUtils;
+import com.zhuxc.ueditor.util.UEditorUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -28,7 +28,8 @@ public interface UEditorActionService {
         final Map<String, MultipartFile> fileMap = req.getFileMap();
         final MultipartFile multipartFile = fileMap.get(uploadFiledName);
         final String originalFilename = multipartFile.getOriginalFilename();
-        final String suffix = UeditorUtils.getSuffix(originalFilename);
+        assert originalFilename != null;
+        final String suffix = UEditorUtils.getSuffix(originalFilename);
         final InputStream inputStream = multipartFile.getInputStream();
         InputStreamDetail inputStreamDetail = new InputStreamDetail();
         inputStreamDetail.setSuffix(suffix);

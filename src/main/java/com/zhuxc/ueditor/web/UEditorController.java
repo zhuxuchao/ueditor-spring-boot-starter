@@ -6,7 +6,7 @@ import com.zhuxc.ueditor.consts.Parameters;
 import com.zhuxc.ueditor.entity.BaseResponse;
 import com.zhuxc.ueditor.entity.InputStreamDetail;
 import com.zhuxc.ueditor.service.UEditorActionService;
-import com.zhuxc.ueditor.util.UeditorUtils;
+import com.zhuxc.ueditor.util.UEditorUtils;
 import com.zhuxc.ueditor.util.Validator;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class UEditorController {
             return new ResponseEntity<>(new BaseResponse(INVALID_ACTION), HttpStatus.OK);
         }
         if (StringUtils.hasText(callbackName)) {
-            if (!UeditorUtils.validCallbackName(callbackName)) {
+            if (!UEditorUtils.validCallbackName(callbackName)) {
                 return new ResponseEntity<>(new BaseResponse(ILLEGAL_CALLBACK), HttpStatus.OK);
             }
         }
@@ -56,7 +56,7 @@ public class UEditorController {
             switch (action) {
                 case CONFIG: {
                     // 需要支持callback参数,返回jsonp格式 
-                    String config = UeditorUtils.callbackConfig(properties, callbackName);
+                    String config = UEditorUtils.callbackConfig(properties, callbackName);
                     return new ResponseEntity<>(config, HttpStatus.OK);
                 }
                 case UPLOAD_FILE: {
@@ -97,7 +97,7 @@ public class UEditorController {
                     }
                     BaseResponse response = actionService.listFile(start, size);
                     // 需要支持callback参数,返回jsonp格式
-                    String body = UeditorUtils.callbackStr(response, callbackName);
+                    String body = UEditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
                 case LIST_IMAGE: {
@@ -114,7 +114,7 @@ public class UEditorController {
                     }
                     BaseResponse response = actionService.listImage(start, size);
                     // 需要支持callback参数,返回jsonp格式 
-                    String body = UeditorUtils.callbackStr(response, callbackName);
+                    String body = UEditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
                 case CATCH_IMAGE: {
@@ -122,7 +122,7 @@ public class UEditorController {
                     String[] source = request.getParameterValues(Parameters.SOURCE);
                     BaseResponse response = actionService.catchImage(properties, source);
                     // 需要支持callback参数,返回jsonp格式 
-                    String body = UeditorUtils.callbackStr(response, callbackName);
+                    String body = UEditorUtils.callbackStr(response, callbackName);
                     return new ResponseEntity<>(body, HttpStatus.OK);
                 }
                 default: {

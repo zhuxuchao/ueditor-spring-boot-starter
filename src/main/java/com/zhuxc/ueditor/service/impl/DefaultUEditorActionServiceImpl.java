@@ -7,7 +7,7 @@ import com.zhuxc.ueditor.consts.Constants;
 import com.zhuxc.ueditor.entity.*;
 import com.zhuxc.ueditor.service.UEditorActionService;
 import com.zhuxc.ueditor.util.PathFormat;
-import com.zhuxc.ueditor.util.UeditorUtils;
+import com.zhuxc.ueditor.util.UEditorUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.io.File;
@@ -50,7 +50,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
         String imagePathFormat = properties.getImagePathFormat();
         String originFileName = streamDetail.getOriginFileName();
         String path = PathFormat.parse(imagePathFormat) + suffix;
-        UeditorUtils.upload(bytes, path);
+        UEditorUtils.upload(bytes, path);
         UploadResponse uploadResponse = new UploadResponse();
         uploadResponse.setState(Constants.Message.SUCCESS);
         uploadResponse.setUrl(path);
@@ -79,7 +79,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
         String imagePathFormat = properties.getVideoPathFormat();
         String originFileName = streamDetail.getOriginFileName();
         String path = PathFormat.parse(imagePathFormat) + suffix;
-        UeditorUtils.upload(bytes, path);
+        UEditorUtils.upload(bytes, path);
         UploadResponse uploadResponse = new UploadResponse();
         uploadResponse.setState(Constants.Message.SUCCESS);
         uploadResponse.setUrl(path);
@@ -108,7 +108,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
         String imagePathFormat = properties.getFilePathFormat();
         String originFileName = streamDetail.getOriginFileName();
         String path = PathFormat.parse(imagePathFormat) + suffix;
-        UeditorUtils.upload(bytes, path);
+        UEditorUtils.upload(bytes, path);
         UploadResponse uploadResponse = new UploadResponse();
         uploadResponse.setState(Constants.Message.SUCCESS);
         uploadResponse.setUrl(path);
@@ -133,7 +133,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
         String imagePathFormat = properties.getScrawlPathFormat();
         String originFileName = streamDetail.getOriginFileName();
         String path = PathFormat.parse(imagePathFormat) + suffix;
-        UeditorUtils.upload(bytes, path);
+        UEditorUtils.upload(bytes, path);
         UploadResponse uploadResponse = new UploadResponse();
         uploadResponse.setState(Constants.Message.SUCCESS);
         uploadResponse.setUrl(path);
@@ -154,7 +154,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
         String imagePathFormat = properties.getSnapscreenPathFormat();
         String originFileName = streamDetail.getOriginFileName();
         String path = PathFormat.parse(imagePathFormat) + suffix;
-        UeditorUtils.upload(bytes, path);
+        UEditorUtils.upload(bytes, path);
         UploadResponse uploadResponse = new UploadResponse();
         uploadResponse.setState(Constants.Message.SUCCESS);
         uploadResponse.setUrl(path);
@@ -210,7 +210,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
             for (String imageUrl : source) {
                 URL url = new URL(imageUrl);
                 Set<String> allowDomain = properties.getCatcherLocalDomain();
-                if (!UeditorUtils.validHost(url.getHost(), allowDomain)) {
+                if (!UEditorUtils.validHost(url.getHost(), allowDomain)) {
                     return new BaseResponse(Constants.Message.PREVENT_HOST);
                 }
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -219,7 +219,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
                 if (HttpURLConnection.HTTP_OK != connection.getResponseCode()) {
                     return new BaseResponse(Constants.Message.CONNECTION_ERROR);
                 }
-                String suffix = UeditorUtils.getSuffix(connection.getContentType());
+                String suffix = UEditorUtils.getSuffix(connection.getContentType());
                 Set<String> allowFiles = properties.getCatcherAllowFiles();
                 if (!allowFiles.contains(suffix)) {
                     return new BaseResponse(Constants.Message.NOT_ALLOW_FILE_TYPE);
@@ -232,7 +232,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
                 String path = PathFormat.parse(catcherPathFormat) + suffix;
                 InputStream inputStream = connection.getInputStream();
                 byte[] bytes = IoUtil.readBytes(inputStream);
-                UeditorUtils.upload(bytes, path);
+                UEditorUtils.upload(bytes, path);
                 CatchImageResponse.CatchImageItem item = new CatchImageResponse.CatchImageItem(imageUrl
                         , Constants.Message.SUCCESS
                         , path);
@@ -246,7 +246,7 @@ public class DefaultUEditorActionServiceImpl implements UEditorActionService {
 
     private List<File> getFiles(String listPath, Set<String> allowFiles) {
         return FileUtil.loopFiles(listPath, file -> {
-            final String suffix = UeditorUtils.getSuffix(file.getName());
+            final String suffix = UEditorUtils.getSuffix(file.getName());
             return allowFiles.contains(suffix);
         });
     }
