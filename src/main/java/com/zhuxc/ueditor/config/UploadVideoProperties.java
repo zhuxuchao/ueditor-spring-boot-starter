@@ -38,7 +38,7 @@ public class UploadVideoProperties {
      * 上传视频格式限制
      */
     private Set<String> videoAllowFiles = new HashSet<>(Arrays.asList(".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb",
-            ".mpeg", ".mpg", ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid"));
+            ".mpeg", ".mpg", ".ogg", ".ogv", ".mov", ".wmv", ".mp4", ".webm", ".mp3", ".wav", ".mid", ".pcm"));
 
     public String getVideoActionName() {
         return videoActionName;
