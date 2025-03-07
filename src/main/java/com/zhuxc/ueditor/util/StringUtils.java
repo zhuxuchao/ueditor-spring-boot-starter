@@ -1,6 +1,7 @@
 package com.zhuxc.ueditor.util;
 
 import cn.hutool.core.util.CharUtil;
+import cn.hutool.json.JSONUtil;
 
 import java.util.function.Predicate;
 
@@ -63,5 +64,9 @@ public class StringUtils {
         }
 
         return result;
+    }
+
+    public static boolean isJsonString(String str) {
+        return JSONUtil.isTypeJSON(str);
     }
 }
