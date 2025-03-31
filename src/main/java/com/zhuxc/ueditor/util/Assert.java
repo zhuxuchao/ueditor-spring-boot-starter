@@ -1,5 +1,7 @@
 package com.zhuxc.ueditor.util;
 
+import java.util.Collection;
+
 /**
  * 断言工具类
  * @auther zhuxc
@@ -21,6 +23,18 @@ public abstract class Assert {
 
     public static void hasText(String text, String message) {
         if (!(text != null && !text.isBlank())) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void isEmpty(Collection<?> collection, String message) {
+        if (collection != null && !collection.isEmpty()) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    public static void isNotEmpty(Collection<?> collection, String message) {
+        if (collection == null || collection.isEmpty()) {
             throw new IllegalArgumentException(message);
         }
     }
