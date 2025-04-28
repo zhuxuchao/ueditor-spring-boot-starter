@@ -23,7 +23,23 @@ import java.util.stream.Collectors;
  */
 public class BeanUtils {
     private static final Logger logger = LoggerFactory.getLogger(BeanUtils.class);
+    public static <T> T convert(Object source, Class<T> clazz) {
+        return convert(source, clazz, false);
+    }
+    public static <T> T convert(Object source, Class<T> clazz, boolean ignoreNull) {
+        T target = null;
+        try {
+            target = clazz.getDeclaredConstructor().newInstance();
+            copy(source, target, ignoreNull);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return target;
+    }
     public static <S, T> void copy(S source, T tagert) {
+        copy(source, tagert, false);
+    }
+    public static <S, T> void copy(S source, T tagert, boolean ignoreNull) {
         BeanInfo targetBeanInfo;
         BeanInfo sourceBeanInfo;
         try {
@@ -46,7 +62,9 @@ public class BeanUtils {
                 if (writeMethod != null && readMethod != null && readMethod.getReturnType().equals(writeMethod.getParameterTypes()[0])) {
                     try {
                         Object obj = readMethod.invoke(source, (Object) null);
-                        writeMethod.invoke(tagert, obj);
+                        if (!(ignoreNull && obj == null)) {
+                            writeMethod.invoke(tagert, obj);
+                        }
                     } catch (Exception e) {
                         logger.error("属性拷贝异常", e);
                     }
